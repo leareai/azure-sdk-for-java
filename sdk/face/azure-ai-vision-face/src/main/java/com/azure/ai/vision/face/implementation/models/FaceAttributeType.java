@@ -76,7 +76,7 @@ public final class FaceAttributeType extends ExpandableStringEnum<FaceAttributeT
 
     /**
      * Creates a new instance of FaceAttributeType value.
-     * 
+     *
      * @deprecated Use the {@link #fromString(String)} factory method.
      */
     @Generated
@@ -86,7 +86,7 @@ public final class FaceAttributeType extends ExpandableStringEnum<FaceAttributeT
 
     /**
      * Creates or finds a FaceAttributeType from its string representation.
-     * 
+     *
      * @param name a name to look for.
      * @return the corresponding FaceAttributeType.
      */
@@ -97,7 +97,7 @@ public final class FaceAttributeType extends ExpandableStringEnum<FaceAttributeT
 
     /**
      * Gets known FaceAttributeType values.
-     * 
+     *
      * @return known FaceAttributeType values.
      */
     @Generated

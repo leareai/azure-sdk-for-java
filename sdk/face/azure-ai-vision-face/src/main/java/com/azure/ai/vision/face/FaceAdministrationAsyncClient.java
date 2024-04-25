@@ -81,7 +81,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Initializes an instance of FaceAdministrationAsyncClient class.
-     * 
+     *
      * @param serviceClient the service client implementation.
      */
     @Generated
@@ -91,21 +91,21 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Create an empty Face List with user-specified faceListId, name, an optional userData and recognitionModel.
-     * 
+     *
      * Up to 64 Face Lists are allowed in one subscription.
-     * 
+     *
      * Face List is a list of faces, up to 1,000 faces, and used by "Find Similar From Face List".
-     * 
+     *
      * After creation, user should use "Add Face List Face" to import the faces. No image will be stored. Only the
      * extracted face feature(s) will be stored on server until "Delete Face List" is called.
-     * 
+     *
      * "Find Similar" is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way
      * face identification. But if the actual use is to identify person, please use Person Group / Large Person Group
      * and "Identify".
-     * 
+     *
      * Please consider Large Face List when the face number is large. It can support up to 1,000,000 faces.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -113,7 +113,7 @@ public final class FaceAdministrationAsyncClient {
      *     recognitionModel: String(recognition_01/recognition_02/recognition_03/recognition_04) (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -132,7 +132,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a specified Face List.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -158,7 +158,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -173,7 +173,7 @@ public final class FaceAdministrationAsyncClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -192,14 +192,14 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update information of a Face List, including name and userData.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -218,7 +218,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Face Lists' faceListId, name, userData and recognitionModel.
-     * 
+     *
      * To get face information inside Face List use "Get Face List".
      * <p><strong>Query Parameters</strong></p>
      * <table border="1">
@@ -229,7 +229,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -240,7 +240,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -256,11 +256,11 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Face List, up to 1,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Face List Face" or "Delete Face List" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -292,21 +292,21 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     url: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -325,11 +325,11 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Face List, up to 1,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Face List Face" or "Delete Face List" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -361,19 +361,19 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * BinaryData
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param imageContent The image to be analyzed.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -392,10 +392,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a Face List by specified faceListId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same Face List are processed sequentially and to/from different Face Lists are in
      * parallel.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -415,24 +415,24 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create an empty Large Face List with user-specified largeFaceListId, name, an optional userData and
      * recognitionModel.
-     * 
+     *
      * Large Face List is a list of faces, up to 1,000,000 faces, and used by "Find Similar From Large Face List".
-     * 
+     *
      * After creation, user should use Add Large Face List Face to import the faces and Train Large Face List to make it
      * ready for "Find Similar". No image will be stored. Only the extracted face feature(s) will be stored on server
      * until Delete Large Face List is called.
-     * 
+     *
      * "Find Similar" is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way
      * face identification. But if the actual use is to identify person, please use Person Group / Large Person Group
      * and "Identify".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 64 Large Face Lists.
      * &gt; * S0-tier subscription quota: 1,000,000 Large Face Lists.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -440,7 +440,7 @@ public final class FaceAdministrationAsyncClient {
      *     recognitionModel: String(recognition_01/recognition_02/recognition_03/recognition_04) (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -459,10 +459,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a Large Face List by specified largeFaceListId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same Large Face List are processed sequentially and to/from different Large Face
      * Lists are in parallel.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -488,7 +488,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -497,7 +497,7 @@ public final class FaceAdministrationAsyncClient {
      *     largeFaceListId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -517,14 +517,14 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update information of a Large Face List, including name and userData.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -543,9 +543,9 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Large Face Lists' information of largeFaceListId, name, userData and recognitionModel.
-     * 
+     *
      * To get face information inside largeFaceList use "Get Large Face List Face".
-     * 
+     *
      * Large Face Lists are stored in alphabetical order of largeFaceListId.
      * &gt;
      * *
@@ -555,7 +555,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -575,7 +575,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -586,7 +586,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -603,11 +603,11 @@ public final class FaceAdministrationAsyncClient {
     /**
      * To check the Large Face List training status completed or still ongoing. Large Face List training is an
      * asynchronous operation triggered by "Train Large Face List".
-     * 
+     *
      * Training time depends on the number of face entries in a Large Face List. It could be in seconds, or up to half
      * an hour for 1,000,000 faces.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     status: String(notStarted/running/succeeded/failed) (Required)
@@ -617,7 +617,7 @@ public final class FaceAdministrationAsyncClient {
      *     message: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -635,15 +635,15 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Submit a Large Face List training task.
-     * 
-     * 
+     *
+     *
      * Training is a crucial step that only a trained Large Face List can be used by "Find Similar From Large Face
      * List".
-     * 
+     *
      * The training task is an asynchronous task. Training time depends on the number of face entries in a Large Face
      * List. It could be in seconds, or up to half an hour for 1,000,000 faces. To check training completion, please use
      * "Get Large Face List Training Status".
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -661,12 +661,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Large Face List, up to 1,000,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Face List Face" or "Delete Large Face List" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -683,7 +683,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -704,21 +704,21 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     url: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -738,12 +738,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Large Face List, up to 1,000,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Face List Face" or "Delete Large Face List" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -760,7 +760,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -781,19 +781,19 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * BinaryData
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param imageContent The image to be analyzed.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -812,7 +812,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a Large Face List by specified largeFaceListId and persistedFaceId.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -833,14 +833,14 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve persisted face in Large Face List by largeFaceListId and persistedFaceId.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -861,13 +861,13 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update a specified face's userData field in a Large Face List by its persistedFaceId.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @param request The request parameter.
@@ -888,7 +888,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List faces' persistedFaceId and userData in a specified Large Face List.
-     * 
+     *
      * Faces are stored in alphabetical order of persistedFaceId created in "Add Large Face List Face".
      * &gt;
      * *
@@ -898,7 +898,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -916,7 +916,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -925,7 +925,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -943,21 +943,21 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Create a new Person Group with specified personGroupId, name, user-provided userData and recognitionModel.
-     * 
+     *
      * A Person Group is a container holding the uploaded person data, including face recognition features.
-     * 
+     *
      * After creation, use "Create Person Group Person" to add persons into the group, and then call "Train Person
      * Group" to get this group ready for "Identify From Person Group".
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * "Delete Person Group Person" or "Delete Person Group" is called.
-     * 
+     *
      * 'recognitionModel' should be specified to associate with this Person Group. The default value for
      * 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need
      * in this parameter. New faces that are added to an existing Person Group will use the recognition model that's
      * already associated with the collection. Existing face feature(s) in a Person Group can't be updated to features
      * extracted by another version of recognition model.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -965,7 +965,7 @@ public final class FaceAdministrationAsyncClient {
      * &gt; * S0-tier subscription quota: 1,000,000 Person Groups. Each holds up to 10,000 persons.
      * &gt; * to handle larger scale face identification problem, please consider using Large Person Group.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -973,7 +973,7 @@ public final class FaceAdministrationAsyncClient {
      *     recognitionModel: String(recognition_01/recognition_02/recognition_03/recognition_04) (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -993,7 +993,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing Person Group with specified personGroupId. Persisted data in this Person Group will be
      * deleted.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1020,7 +1020,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -1029,7 +1029,7 @@ public final class FaceAdministrationAsyncClient {
      *     personGroupId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1049,14 +1049,14 @@ public final class FaceAdministrationAsyncClient {
      * Update an existing Person Group's name and userData. The properties keep unchanged if they are not in request
      * body.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1075,7 +1075,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Person Groups' personGroupId, name, userData and recognitionModel.
-     * 
+     *
      * Person Groups are stored in alphabetical order of personGroupId.
      * &gt;
      * *
@@ -1085,7 +1085,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -1105,7 +1105,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -1116,7 +1116,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -1134,7 +1134,7 @@ public final class FaceAdministrationAsyncClient {
      * To check Person Group training status completed or still ongoing. Person Group training is an asynchronous
      * operation triggered by "Train Person Group" API.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     status: String(notStarted/running/succeeded/failed) (Required)
@@ -1144,7 +1144,7 @@ public final class FaceAdministrationAsyncClient {
      *     message: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1163,11 +1163,11 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Submit a Person Group training task. Training is a crucial step that only a trained Person Group can be used by
      * "Identify From Person Group".
-     * 
+     *
      * The training task is an asynchronous task. Training time depends on the number of person entries, and their faces
      * in a Person Group. It could be several seconds to minutes. To check training status, please use "Get Person Group
      * Training Status".
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1186,7 +1186,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new person in a specified Person Group. To add face to this person, please call "Add Person Group Person
      * Face".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -1197,22 +1197,22 @@ public final class FaceAdministrationAsyncClient {
      * &gt; * 1,000,000 Person Groups.
      * &gt; * 100,000,000 persons in all Person Groups.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1232,7 +1232,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing person from a Person Group. The persistedFaceId, userData, person name and face feature(s) in
      * the person entry will all be deleted.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1253,7 +1253,7 @@ public final class FaceAdministrationAsyncClient {
      * Retrieve a person's name and userData, and the persisted faceIds representing the registered person face
      * feature(s).
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personId: String (Required)
@@ -1264,7 +1264,7 @@ public final class FaceAdministrationAsyncClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1285,14 +1285,14 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update name or userData of a person.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param request The request parameter.
@@ -1314,7 +1314,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * List all persons' information in the specified Person Group, including personId, name, userData and
      * persistedFaceIds of registered person faces.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in "Create Person Group Person".
      * &gt;
      * *
@@ -1324,7 +1324,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -1342,7 +1342,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -1355,7 +1355,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1373,12 +1373,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Person Group Person Face", "Delete Person Group Person" or
      * "Delete Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -1410,21 +1410,21 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     url: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param request The request parameter.
@@ -1445,12 +1445,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Person Group Person Face", "Delete Person Group Person" or
      * "Delete Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -1482,19 +1482,19 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * BinaryData
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param imageContent The image to be analyzed.
@@ -1515,10 +1515,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a person in a Person Group by specified personGroupId, personId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same person will be processed sequentially. Adding/deleting faces to/from
      * different persons are processed in parallel.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -1541,14 +1541,14 @@ public final class FaceAdministrationAsyncClient {
      * Retrieve person face information. The persisted person face is specified by its personGroupId, personId and
      * persistedFaceId.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -1571,13 +1571,13 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update a person persisted face's userData field.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -1600,29 +1600,29 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new Large Person Group with user-specified largePersonGroupId, name, an optional userData and
      * recognitionModel.
-     * 
+     *
      * A Large Person Group is a container holding the uploaded person data, including the face recognition features. It
      * can hold up to 1,000,000 entities.
-     * 
+     *
      * After creation, use "Create Large Person Group Person" to add person into the group, and call "Train Large Person
      * Group" to get this group ready for "Identify From Large Person Group".
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * "Delete Large Person Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * 'recognitionModel' should be specified to associate with this Large Person Group. The default value for
      * 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need
      * in this parameter. New faces that are added to an existing Large Person Group will use the recognition model
      * that's already associated with the collection. Existing face feature(s) in a Large Person Group can't be updated
      * to features extracted by another version of recognition model.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 Large Person Groups.
      * &gt; * S0-tier subscription quota: 1,000,000 Large Person Groups.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -1630,7 +1630,7 @@ public final class FaceAdministrationAsyncClient {
      *     recognitionModel: String(recognition_01/recognition_02/recognition_03/recognition_04) (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1650,7 +1650,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing Large Person Group with specified personGroupId. Persisted data in this Large Person Group
      * will be deleted.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1679,7 +1679,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
@@ -1688,7 +1688,7 @@ public final class FaceAdministrationAsyncClient {
      *     largePersonGroupId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1709,14 +1709,14 @@ public final class FaceAdministrationAsyncClient {
      * Update an existing Large Person Group's name and userData. The properties keep unchanged if they are not in
      * request body.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1735,7 +1735,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all existing Large Person Groups' largePersonGroupId, name, userData and recognitionModel.
-     * 
+     *
      * Large Person Groups are stored in alphabetical order of largePersonGroupId.
      * &gt;
      * *
@@ -1745,7 +1745,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -1765,7 +1765,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -1776,7 +1776,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -1793,11 +1793,11 @@ public final class FaceAdministrationAsyncClient {
     /**
      * To check Large Person Group training status completed or still ongoing. Large Person Group training is an
      * asynchronous operation triggered by "Train Large Person Group" API.
-     * 
+     *
      * Training time depends on the number of person entries, and their faces in a Large Person Group. It could be in
      * seconds, or up to half an hour for 1,000,000 persons.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     status: String(notStarted/running/succeeded/failed) (Required)
@@ -1807,7 +1807,7 @@ public final class FaceAdministrationAsyncClient {
      *     message: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1827,11 +1827,11 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Submit a Large Person Group training task. Training is a crucial step that only a trained Large Person Group can
      * be used by "Identify From Large Person Group".
-     * 
+     *
      * The training task is an asynchronous task. Training time depends on the number of person entries, and their faces
      * in a Large Person Group. It could be in several seconds, or up to half a hour for 1,000,000 persons. To check
      * training status, please use "Get Large Person Group Training Status".
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1850,7 +1850,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new person in a specified Large Person Group. To add face to this person, please call "Add Large Person
      * Group Person Face".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -1861,22 +1861,22 @@ public final class FaceAdministrationAsyncClient {
      * &gt; * 1,000,000 Large Person Groups.
      * &gt; * 1,000,000,000 persons in all Large Person Groups.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1897,7 +1897,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing person from a Large Person Group. The persistedFaceId, userData, person name and face
      * feature(s) in the person entry will all be deleted.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1919,7 +1919,7 @@ public final class FaceAdministrationAsyncClient {
      * Retrieve a person's name and userData, and the persisted faceIds representing the registered person face
      * feature(s).
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personId: String (Required)
@@ -1930,7 +1930,7 @@ public final class FaceAdministrationAsyncClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -1952,14 +1952,14 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update name or userData of a person.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param request The request parameter.
@@ -1981,7 +1981,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * List all persons' information in the specified Large Person Group, including personId, name, userData and
      * persistedFaceIds of registered person faces.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in "Create Large Person Group Person".
      * &gt;
      * *
@@ -1991,7 +1991,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -2009,7 +2009,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -2022,7 +2022,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2040,12 +2040,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Large Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Person Group Person Face", "Delete Large Person
      * Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -2077,21 +2077,21 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     url: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param request The request parameter.
@@ -2112,12 +2112,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Large Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Person Group Person Face", "Delete Large Person
      * Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -2149,19 +2149,19 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * BinaryData
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param imageContent The image to be analyzed.
@@ -2183,10 +2183,10 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete a face from a person in a Large Person Group by specified largePersonGroupId, personId and
      * persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same person will be processed sequentially. Adding/deleting faces to/from
      * different persons are processed in parallel.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -2209,14 +2209,14 @@ public final class FaceAdministrationAsyncClient {
      * Retrieve person face information. The persisted person face is specified by its largePersonGroupId, personId and
      * persistedFaceId.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -2239,13 +2239,13 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update a person persisted face's userData field.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -2269,22 +2269,22 @@ public final class FaceAdministrationAsyncClient {
      * Creates a new person in a Person Directory. To add face to this person, please call Person Directory "Add Person
      * Face".
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2302,7 +2302,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing person from Person Directory. The persistedFaceId(s), userData, person name and face
      * feature(s) in the person entry will all be deleted.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2320,7 +2320,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve a person's name and userData from Person Directory.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personId: String (Required)
@@ -2328,7 +2328,7 @@ public final class FaceAdministrationAsyncClient {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2347,14 +2347,14 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update name or userData of a person.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     name: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -2373,7 +2373,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all persons' information in Person Directory, including personId, name, and userData.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in Person Directory "Create Person".
      * &gt;
      * *
@@ -2383,7 +2383,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -2401,7 +2401,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -2411,7 +2411,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -2427,7 +2427,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all Dynamic Person Groups a person has been referenced by in Person Directory.
-     * 
+     *
      * Dynamic Person Groups are stored in alphabetical order of Dynamic Person Group ID created in Person Directory
      * "Create Dynamic Person Group".
      * &gt;
@@ -2438,7 +2438,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -2456,7 +2456,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     dynamicPersonGroupIds (Required): [
@@ -2464,7 +2464,7 @@ public final class FaceAdministrationAsyncClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2483,12 +2483,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person (see Person Directory "Create Person") for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until Person Directory "Delete Person Face" or "Delete Person" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -2526,21 +2526,21 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     url: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces. Allowed values: "recognition_01",
      * "recognition_02", "recognition_03", "recognition_04".
@@ -2562,12 +2562,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person (see Person Directory "Create Person") for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until Person Directory "Delete Person Face" or "Delete Person" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -2605,19 +2605,19 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * BinaryData
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces. Allowed values: "recognition_01",
      * "recognition_02", "recognition_03", "recognition_04".
@@ -2639,10 +2639,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a person in Person Directory by specified personId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same person will be processed sequentially. Adding/deleting faces to/from
      * different persons are processed in parallel.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces. Allowed values: "recognition_01",
      * "recognition_02", "recognition_03", "recognition_04".
@@ -2666,14 +2666,14 @@ public final class FaceAdministrationAsyncClient {
      * Retrieve person face information. The persisted person face is specified by its personId. recognitionModel, and
      * persistedFaceId.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     persistedFaceId: String (Required)
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces. Allowed values: "recognition_01",
      * "recognition_02", "recognition_03", "recognition_04".
@@ -2697,13 +2697,13 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update a persisted face's userData field of a person.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces. Allowed values: "recognition_01",
      * "recognition_02", "recognition_03", "recognition_04".
@@ -2727,7 +2727,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve a person's persistedFaceIds representing the registered person face feature(s).
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personId: String (Required)
@@ -2736,7 +2736,7 @@ public final class FaceAdministrationAsyncClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces. Allowed values: "recognition_01",
      * "recognition_02", "recognition_03", "recognition_04".
@@ -2756,22 +2756,22 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Creates a new Dynamic Person Group with specified dynamicPersonGroupId, name, and user-provided userData.
-     * 
+     *
      * A Dynamic Person Group is a container that references Person Directory "Create Person". After creation, use
      * Person Directory "Update Dynamic Person Group" to add/remove persons to/from the Dynamic Person Group.
-     * 
+     *
      * Dynamic Person Group and user data will be stored on server until Person Directory "Delete Dynamic Person Group"
      * is called. Use "Identify From Dynamic Person Group" with the dynamicPersonGroupId parameter to identify against
      * persons.
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * Person Directory "Delete Person" or "Delete Person Face" is called.
-     * 
+     *
      * 'recognitionModel' does not need to be specified with Dynamic Person Groups. Dynamic Person Groups are references
      * to Person Directory "Create Person" and therefore work with most all 'recognitionModels'. The faceId's provided
      * during "Identify" determine the 'recognitionModel' used.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     addPersonIds (Optional): [
@@ -2781,7 +2781,7 @@ public final class FaceAdministrationAsyncClient {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -2801,10 +2801,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Deletes an existing Dynamic Person Group with specified dynamicPersonGroupId.
-     * 
+     *
      * Deleting this Dynamic Person Group only delete the references to persons data. To delete actual person see Person
      * Directory "Delete Person".
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2822,11 +2822,11 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve the information of a Dynamic Person Group, including its name and userData.
-     * 
+     *
      * This API returns Dynamic Person Group information only, use Person Directory "Get Dynamic Person Group Persons"
      * instead to retrieve person information under the Dynamic Person Group.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     dynamicPersonGroupId: String (Required)
@@ -2834,7 +2834,7 @@ public final class FaceAdministrationAsyncClient {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2854,10 +2854,10 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update the name or userData of an existing Dynamic Person Group, and manage its members by adding or removing
      * persons.
-     * 
+     *
      * The properties keep unchanged if they are not in request body.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     addPersonIds (Optional): [
@@ -2870,7 +2870,7 @@ public final class FaceAdministrationAsyncClient {
      *     userData: String (Optional)
      * }
      * }</pre>
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
@@ -2890,7 +2890,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all existing Dynamic Person Groups by dynamicPersonGroupId along with name and userData.
-     * 
+     *
      * Dynamic Person Groups are stored in alphabetical order of dynamicPersonGroupId.
      * &gt;
      * *
@@ -2900,7 +2900,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -2918,7 +2918,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -2928,7 +2928,7 @@ public final class FaceAdministrationAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -2944,7 +2944,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all persons in the specified Dynamic Person Group.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in Person Directory "Create Person".
      * &gt;
      * *
@@ -2954,7 +2954,7 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
@@ -2972,7 +2972,7 @@ public final class FaceAdministrationAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     personIds (Required): [
@@ -2980,7 +2980,7 @@ public final class FaceAdministrationAsyncClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -2999,20 +2999,20 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Create an empty Face List with user-specified faceListId, name, an optional userData and recognitionModel.
-     * 
+     *
      * Up to 64 Face Lists are allowed in one subscription.
-     * 
+     *
      * Face List is a list of faces, up to 1,000 faces, and used by "Find Similar From Face List".
-     * 
+     *
      * After creation, user should use "Add Face List Face" to import the faces. No image will be stored. Only the
      * extracted face feature(s) will be stored on server until "Delete Face List" is called.
-     * 
+     *
      * "Find Similar" is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way
      * face identification. But if the actual use is to identify person, please use Person Group / Large Person Group
      * and "Identify".
-     * 
+     *
      * Please consider Large Face List when the face number is large. It can support up to 1,000,000 faces.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -3042,20 +3042,20 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Create an empty Face List with user-specified faceListId, name, an optional userData and recognitionModel.
-     * 
+     *
      * Up to 64 Face Lists are allowed in one subscription.
-     * 
+     *
      * Face List is a list of faces, up to 1,000 faces, and used by "Find Similar From Face List".
-     * 
+     *
      * After creation, user should use "Add Face List Face" to import the faces. No image will be stored. Only the
      * extracted face feature(s) will be stored on server until "Delete Face List" is called.
-     * 
+     *
      * "Find Similar" is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way
      * face identification. But if the actual use is to identify person, please use Person Group / Large Person Group
      * and "Identify".
-     * 
+     *
      * Please consider Large Face List when the face number is large. It can support up to 1,000,000 faces.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3078,7 +3078,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a specified Face List.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -3098,7 +3098,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve a Face List's faceListId, name, userData, recognitionModel and faces in the Face List.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3123,7 +3123,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve a Face List's faceListId, name, userData, recognitionModel and faces in the Face List.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -3144,7 +3144,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update information of a Face List, including name and userData.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -3168,7 +3168,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update information of a Face List, including name and userData.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3191,9 +3191,9 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Face Lists' faceListId, name, userData and recognitionModel.
-     * 
+     *
      * To get face information inside Face List use "Get Face List".
-     * 
+     *
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -3217,9 +3217,9 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Face Lists' faceListId, name, userData and recognitionModel.
-     * 
+     *
      * To get face information inside Face List use "Get Face List".
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -3238,11 +3238,11 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Face List, up to 1,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Face List Face" or "Delete Face List" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -3259,7 +3259,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param url URL of input image.
      * @param targetFace A face rectangle to specify the target face to be added to a person, in the format of
@@ -3300,11 +3300,11 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Face List, up to 1,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Face List Face" or "Delete Face List" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -3321,7 +3321,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param url URL of input image.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3345,11 +3345,11 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Face List, up to 1,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Face List Face" or "Delete Face List" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -3366,7 +3366,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param imageContent The image to be analyzed.
      * @param targetFace A face rectangle to specify the target face to be added to a person, in the format of
@@ -3405,11 +3405,11 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Face List, up to 1,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Face List Face" or "Delete Face List" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -3426,7 +3426,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param imageContent The image to be analyzed.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3448,10 +3448,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a Face List by specified faceListId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same Face List are processed sequentially and to/from different Face Lists are in
      * parallel.
-     * 
+     *
      * @param faceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3473,23 +3473,23 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create an empty Large Face List with user-specified largeFaceListId, name, an optional userData and
      * recognitionModel.
-     * 
+     *
      * Large Face List is a list of faces, up to 1,000,000 faces, and used by "Find Similar From Large Face List".
-     * 
+     *
      * After creation, user should use Add Large Face List Face to import the faces and Train Large Face List to make it
      * ready for "Find Similar". No image will be stored. Only the extracted face feature(s) will be stored on server
      * until Delete Large Face List is called.
-     * 
+     *
      * "Find Similar" is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way
      * face identification. But if the actual use is to identify person, please use Person Group / Large Person Group
      * and "Identify".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 64 Large Face Lists.
      * &gt; * S0-tier subscription quota: 1,000,000 Large Face Lists.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -3520,23 +3520,23 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create an empty Large Face List with user-specified largeFaceListId, name, an optional userData and
      * recognitionModel.
-     * 
+     *
      * Large Face List is a list of faces, up to 1,000,000 faces, and used by "Find Similar From Large Face List".
-     * 
+     *
      * After creation, user should use Add Large Face List Face to import the faces and Train Large Face List to make it
      * ready for "Find Similar". No image will be stored. Only the extracted face feature(s) will be stored on server
      * until Delete Large Face List is called.
-     * 
+     *
      * "Find Similar" is used for scenario like finding celebrity-like faces, similar face filtering, or as a light way
      * face identification. But if the actual use is to identify person, please use Person Group / Large Person Group
      * and "Identify".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 64 Large Face Lists.
      * &gt; * S0-tier subscription quota: 1,000,000 Large Face Lists.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3559,10 +3559,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a Large Face List by specified largeFaceListId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same Large Face List are processed sequentially and to/from different Large Face
      * Lists are in parallel.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -3582,7 +3582,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve a Large Face List's largeFaceListId, name, userData and recognitionModel.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3607,7 +3607,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve a Large Face List's largeFaceListId, name, userData and recognitionModel.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -3628,7 +3628,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update information of a Large Face List, including name and userData.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -3652,7 +3652,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update information of a Large Face List, including name and userData.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3675,9 +3675,9 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Large Face Lists' information of largeFaceListId, name, userData and recognitionModel.
-     * 
+     *
      * To get face information inside largeFaceList use "Get Large Face List Face".
-     * 
+     *
      * Large Face Lists are stored in alphabetical order of largeFaceListId.
      * &gt;
      * *
@@ -3687,14 +3687,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
@@ -3726,9 +3726,9 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Large Face Lists' information of largeFaceListId, name, userData and recognitionModel.
-     * 
+     *
      * To get face information inside largeFaceList use "Get Large Face List Face".
-     * 
+     *
      * Large Face Lists are stored in alphabetical order of largeFaceListId.
      * &gt;
      * *
@@ -3738,14 +3738,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -3765,10 +3765,10 @@ public final class FaceAdministrationAsyncClient {
     /**
      * To check the Large Face List training status completed or still ongoing. Large Face List training is an
      * asynchronous operation triggered by "Train Large Face List".
-     * 
+     *
      * Training time depends on the number of face entries in a Large Face List. It could be in seconds, or up to half
      * an hour for 1,000,000 faces.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -3789,15 +3789,15 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Submit a Large Face List training task.
-     * 
-     * 
+     *
+     *
      * Training is a crucial step that only a trained Large Face List can be used by "Find Similar From Large Face
      * List".
-     * 
+     *
      * The training task is an asynchronous task. Training time depends on the number of face entries in a Large Face
      * List. It could be in seconds, or up to half an hour for 1,000,000 faces. To check training completion, please use
      * "Get Large Face List Training Status".
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -3817,12 +3817,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Large Face List, up to 1,000,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Face List Face" or "Delete Large Face List" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -3839,13 +3839,13 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 faces per Large Face List.
      * &gt; * S0-tier subscription quota: 1,000,000 faces per Large Face List.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param url URL of input image.
      * @param targetFace A face rectangle to specify the target face to be added to a person, in the format of
@@ -3887,12 +3887,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Large Face List, up to 1,000,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Face List Face" or "Delete Large Face List" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -3909,13 +3909,13 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 faces per Large Face List.
      * &gt; * S0-tier subscription quota: 1,000,000 faces per Large Face List.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param url URL of input image.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -3940,12 +3940,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Large Face List, up to 1,000,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Face List Face" or "Delete Large Face List" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -3962,13 +3962,13 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 faces per Large Face List.
      * &gt; * S0-tier subscription quota: 1,000,000 faces per Large Face List.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param imageContent The image to be analyzed.
      * @param targetFace A face rectangle to specify the target face to be added to a person, in the format of
@@ -4007,12 +4007,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a specified Large Face List, up to 1,000,000 faces.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Face List Face" or "Delete Large Face List" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -4029,13 +4029,13 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 faces per Large Face List.
      * &gt; * S0-tier subscription quota: 1,000,000 faces per Large Face List.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param imageContent The image to be analyzed.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4057,7 +4057,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a Large Face List by specified largeFaceListId and persistedFaceId.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4079,7 +4079,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve persisted face in Large Face List by largeFaceListId and persistedFaceId.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4102,7 +4102,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a specified face's userData field in a Large Face List by its persistedFaceId.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @param userData User-provided data attached to the face. The length limit is 1K.
@@ -4127,7 +4127,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a specified face's userData field in a Large Face List by its persistedFaceId.
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param persistedFaceId Face ID of the face.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4151,7 +4151,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List faces' persistedFaceId and userData in a specified Large Face List.
-     * 
+     *
      * Faces are stored in alphabetical order of persistedFaceId created in "Add Large Face List Face".
      * &gt;
      * *
@@ -4161,14 +4161,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
@@ -4197,7 +4197,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List faces' persistedFaceId and userData in a specified Large Face List.
-     * 
+     *
      * Faces are stored in alphabetical order of persistedFaceId created in "Add Large Face List Face".
      * &gt;
      * *
@@ -4207,14 +4207,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param largeFaceListId Valid character is letter in lower case or digit or '-' or '_', maximum length is 64.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -4235,28 +4235,28 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Create a new Person Group with specified personGroupId, name, user-provided userData and recognitionModel.
-     * 
+     *
      * A Person Group is a container holding the uploaded person data, including face recognition features.
-     * 
+     *
      * After creation, use "Create Person Group Person" to add persons into the group, and then call "Train Person
      * Group" to get this group ready for "Identify From Person Group".
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * "Delete Person Group Person" or "Delete Person Group" is called.
-     * 
+     *
      * 'recognitionModel' should be specified to associate with this Person Group. The default value for
      * 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need
      * in this parameter. New faces that are added to an existing Person Group will use the recognition model that's
      * already associated with the collection. Existing face feature(s) in a Person Group can't be updated to features
      * extracted by another version of recognition model.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 Person Groups. Each holds up to 1,000 persons.
      * &gt; * S0-tier subscription quota: 1,000,000 Person Groups. Each holds up to 10,000 persons.
      * &gt; * to handle larger scale face identification problem, please consider using Large Person Group.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -4286,28 +4286,28 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Create a new Person Group with specified personGroupId, name, user-provided userData and recognitionModel.
-     * 
+     *
      * A Person Group is a container holding the uploaded person data, including face recognition features.
-     * 
+     *
      * After creation, use "Create Person Group Person" to add persons into the group, and then call "Train Person
      * Group" to get this group ready for "Identify From Person Group".
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * "Delete Person Group Person" or "Delete Person Group" is called.
-     * 
+     *
      * 'recognitionModel' should be specified to associate with this Person Group. The default value for
      * 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need
      * in this parameter. New faces that are added to an existing Person Group will use the recognition model that's
      * already associated with the collection. Existing face feature(s) in a Person Group can't be updated to features
      * extracted by another version of recognition model.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 Person Groups. Each holds up to 1,000 persons.
      * &gt; * S0-tier subscription quota: 1,000,000 Person Groups. Each holds up to 10,000 persons.
      * &gt; * to handle larger scale face identification problem, please consider using Large Person Group.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4331,7 +4331,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing Person Group with specified personGroupId. Persisted data in this Person Group will be
      * deleted.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -4352,7 +4352,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve Person Group name, userData and recognitionModel. To get person information under this personGroup, use
      * "Get Person Group Persons".
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4379,7 +4379,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve Person Group name, userData and recognitionModel. To get person information under this personGroup, use
      * "Get Person Group Persons".
-     * 
+     *
      * @param personGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -4402,7 +4402,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update an existing Person Group's name and userData. The properties keep unchanged if they are not in request
      * body.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -4427,7 +4427,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update an existing Person Group's name and userData. The properties keep unchanged if they are not in request
      * body.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4450,7 +4450,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Person Groups' personGroupId, name, userData and recognitionModel.
-     * 
+     *
      * Person Groups are stored in alphabetical order of personGroupId.
      * &gt;
      * *
@@ -4460,14 +4460,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
@@ -4499,7 +4499,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List Person Groups' personGroupId, name, userData and recognitionModel.
-     * 
+     *
      * Person Groups are stored in alphabetical order of personGroupId.
      * &gt;
      * *
@@ -4509,14 +4509,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -4536,7 +4536,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * To check Person Group training status completed or still ongoing. Person Group training is an asynchronous
      * operation triggered by "Train Person Group" API.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -4558,11 +4558,11 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Submit a Person Group training task. Training is a crucial step that only a trained Person Group can be used by
      * "Identify From Person Group".
-     * 
+     *
      * The training task is an asynchronous task. Training time depends on the number of person entries, and their faces
      * in a Person Group. It could be several seconds to minutes. To check training status, please use "Get Person Group
      * Training Status".
-     * 
+     *
      * @param personGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -4583,7 +4583,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new person in a specified Person Group. To add face to this person, please call "Add Person Group Person
      * Face".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -4593,7 +4593,7 @@ public final class FaceAdministrationAsyncClient {
      * &gt; * 10,000 persons per Person Group.
      * &gt; * 1,000,000 Person Groups.
      * &gt; * 100,000,000 persons in all Person Groups.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -4619,7 +4619,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new person in a specified Person Group. To add face to this person, please call "Add Person Group Person
      * Face".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -4629,7 +4629,7 @@ public final class FaceAdministrationAsyncClient {
      * &gt; * 10,000 persons per Person Group.
      * &gt; * 1,000,000 Person Groups.
      * &gt; * 100,000,000 persons in all Person Groups.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4654,7 +4654,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing person from a Person Group. The persistedFaceId, userData, person name and face feature(s) in
      * the person entry will all be deleted.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4676,7 +4676,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve a person's name and userData, and the persisted faceIds representing the registered person face
      * feature(s).
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -4698,7 +4698,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update name or userData of a person.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param name User defined name, maximum length is 128.
@@ -4724,7 +4724,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update name or userData of a person.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param name User defined name, maximum length is 128.
@@ -4750,7 +4750,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * List all persons' information in the specified Person Group, including personId, name, userData and
      * persistedFaceIds of registered person faces.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in "Create Person Group Person".
      * &gt;
      * *
@@ -4760,14 +4760,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
@@ -4797,7 +4797,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * List all persons' information in the specified Person Group, including personId, name, userData and
      * persistedFaceIds of registered person faces.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in "Create Person Group Person".
      * &gt;
      * *
@@ -4807,14 +4807,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param personGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -4835,12 +4835,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Person Group Person Face", "Delete Person Group Person" or
      * "Delete Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -4857,7 +4857,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param url URL of input image.
@@ -4900,12 +4900,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Person Group Person Face", "Delete Person Group Person" or
      * "Delete Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -4922,7 +4922,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param url URL of input image.
@@ -4948,12 +4948,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Person Group Person Face", "Delete Person Group Person" or
      * "Delete Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -4970,7 +4970,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param imageContent The image to be analyzed.
@@ -5011,12 +5011,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Person Group Person Face", "Delete Person Group Person" or
      * "Delete Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -5033,7 +5033,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param imageContent The image to be analyzed.
@@ -5058,10 +5058,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a person in a Person Group by specified personGroupId, personId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same person will be processed sequentially. Adding/deleting faces to/from
      * different persons are processed in parallel.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -5085,7 +5085,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve person face information. The persisted person face is specified by its personGroupId, personId and
      * persistedFaceId.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -5110,7 +5110,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a person persisted face's userData field.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -5137,7 +5137,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a person persisted face's userData field.
-     * 
+     *
      * @param personGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -5163,28 +5163,28 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new Large Person Group with user-specified largePersonGroupId, name, an optional userData and
      * recognitionModel.
-     * 
+     *
      * A Large Person Group is a container holding the uploaded person data, including the face recognition features. It
      * can hold up to 1,000,000 entities.
-     * 
+     *
      * After creation, use "Create Large Person Group Person" to add person into the group, and call "Train Large Person
      * Group" to get this group ready for "Identify From Large Person Group".
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * "Delete Large Person Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * 'recognitionModel' should be specified to associate with this Large Person Group. The default value for
      * 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need
      * in this parameter. New faces that are added to an existing Large Person Group will use the recognition model
      * that's already associated with the collection. Existing face feature(s) in a Large Person Group can't be updated
      * to features extracted by another version of recognition model.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 Large Person Groups.
      * &gt; * S0-tier subscription quota: 1,000,000 Large Person Groups.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -5216,28 +5216,28 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new Large Person Group with user-specified largePersonGroupId, name, an optional userData and
      * recognitionModel.
-     * 
+     *
      * A Large Person Group is a container holding the uploaded person data, including the face recognition features. It
      * can hold up to 1,000,000 entities.
-     * 
+     *
      * After creation, use "Create Large Person Group Person" to add person into the group, and call "Train Large Person
      * Group" to get this group ready for "Identify From Large Person Group".
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * "Delete Large Person Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * 'recognitionModel' should be specified to associate with this Large Person Group. The default value for
      * 'recognitionModel' is 'recognition_01', if the latest model needed, please explicitly specify the model you need
      * in this parameter. New faces that are added to an existing Large Person Group will use the recognition model
      * that's already associated with the collection. Existing face feature(s) in a Large Person Group can't be updated
      * to features extracted by another version of recognition model.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
      * &gt; * Free-tier subscription quota: 1,000 Large Person Groups.
      * &gt; * S0-tier subscription quota: 1,000,000 Large Person Groups.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -5262,7 +5262,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing Large Person Group with specified personGroupId. Persisted data in this Large Person Group
      * will be deleted.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -5284,7 +5284,7 @@ public final class FaceAdministrationAsyncClient {
      * Retrieve the information of a Large Person Group, including its name, userData and recognitionModel. This API
      * returns Large Person Group information only, use "Get Large Person Group Persons" instead to retrieve person
      * information under the Large Person Group.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -5312,7 +5312,7 @@ public final class FaceAdministrationAsyncClient {
      * Retrieve the information of a Large Person Group, including its name, userData and recognitionModel. This API
      * returns Large Person Group information only, use "Get Large Person Group Persons" instead to retrieve person
      * information under the Large Person Group.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -5335,7 +5335,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update an existing Large Person Group's name and userData. The properties keep unchanged if they are not in
      * request body.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -5361,7 +5361,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update an existing Large Person Group's name and userData. The properties keep unchanged if they are not in
      * request body.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -5385,7 +5385,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all existing Large Person Groups' largePersonGroupId, name, userData and recognitionModel.
-     * 
+     *
      * Large Person Groups are stored in alphabetical order of largePersonGroupId.
      * &gt;
      * *
@@ -5395,14 +5395,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
      * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
@@ -5435,7 +5435,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all existing Large Person Groups' largePersonGroupId, name, userData and recognitionModel.
-     * 
+     *
      * Large Person Groups are stored in alphabetical order of largePersonGroupId.
      * &gt;
      * *
@@ -5445,14 +5445,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -5472,10 +5472,10 @@ public final class FaceAdministrationAsyncClient {
     /**
      * To check Large Person Group training status completed or still ongoing. Large Person Group training is an
      * asynchronous operation triggered by "Train Large Person Group" API.
-     * 
+     *
      * Training time depends on the number of person entries, and their faces in a Large Person Group. It could be in
      * seconds, or up to half an hour for 1,000,000 persons.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -5498,11 +5498,11 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Submit a Large Person Group training task. Training is a crucial step that only a trained Large Person Group can
      * be used by "Identify From Large Person Group".
-     * 
+     *
      * The training task is an asynchronous task. Training time depends on the number of person entries, and their faces
      * in a Large Person Group. It could be in several seconds, or up to half a hour for 1,000,000 persons. To check
      * training status, please use "Get Large Person Group Training Status".
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -5523,7 +5523,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new person in a specified Large Person Group. To add face to this person, please call "Add Large Person
      * Group Person Face".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -5533,7 +5533,7 @@ public final class FaceAdministrationAsyncClient {
      * &gt; * 1,000,000 persons per Large Person Group.
      * &gt; * 1,000,000 Large Person Groups.
      * &gt; * 1,000,000,000 persons in all Large Person Groups.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -5562,7 +5562,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Create a new person in a specified Large Person Group. To add face to this person, please call "Add Large Person
      * Group Person Face".
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -5572,7 +5572,7 @@ public final class FaceAdministrationAsyncClient {
      * &gt; * 1,000,000 persons per Large Person Group.
      * &gt; * 1,000,000 Large Person Groups.
      * &gt; * 1,000,000,000 persons in all Large Person Groups.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -5598,7 +5598,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing person from a Large Person Group. The persistedFaceId, userData, person name and face
      * feature(s) in the person entry will all be deleted.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -5621,7 +5621,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve a person's name and userData, and the persisted faceIds representing the registered person face
      * feature(s).
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -5644,7 +5644,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update name or userData of a person.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param name User defined name, maximum length is 128.
@@ -5672,7 +5672,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update name or userData of a person.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param name User defined name, maximum length is 128.
@@ -5698,7 +5698,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * List all persons' information in the specified Large Person Group, including personId, name, userData and
      * persistedFaceIds of registered person faces.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in "Create Large Person Group Person".
      * &gt;
      * *
@@ -5708,14 +5708,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
@@ -5746,7 +5746,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * List all persons' information in the specified Large Person Group, including personId, name, userData and
      * persistedFaceIds of registered person faces.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in "Create Large Person Group Person".
      * &gt;
      * *
@@ -5756,14 +5756,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -5784,12 +5784,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Large Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Person Group Person Face", "Delete Large Person
      * Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -5806,7 +5806,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param url URL of input image.
@@ -5849,12 +5849,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Large Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Person Group Person Face", "Delete Large Person
      * Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -5871,7 +5871,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param url URL of input image.
@@ -5898,12 +5898,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Large Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Person Group Person Face", "Delete Large Person
      * Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -5920,7 +5920,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param imageContent The image to be analyzed.
@@ -5961,12 +5961,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person into a Large Person Group for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until "Delete Large Person Group Person Face", "Delete Large Person
      * Group Person" or "Delete Large Person Group" is called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -5983,7 +5983,7 @@ public final class FaceAdministrationAsyncClient {
      * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
      * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
      * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param imageContent The image to be analyzed.
@@ -6009,10 +6009,10 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete a face from a person in a Large Person Group by specified largePersonGroupId, personId and
      * persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same person will be processed sequentially. Adding/deleting faces to/from
      * different persons are processed in parallel.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -6037,7 +6037,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve person face information. The persisted person face is specified by its largePersonGroupId, personId and
      * persistedFaceId.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -6062,7 +6062,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a person persisted face's userData field.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -6090,7 +6090,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a person persisted face's userData field.
-     * 
+     *
      * @param largePersonGroupId ID of the container.
      * @param personId ID of the person.
      * @param persistedFaceId Face ID of the face.
@@ -6117,7 +6117,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Creates a new person in a Person Directory. To add face to this person, please call Person Directory "Add Person
      * Face".
-     * 
+     *
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -6142,7 +6142,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Creates a new person in a Person Directory. To add face to this person, please call Person Directory "Add Person
      * Face".
-     * 
+     *
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -6166,7 +6166,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Delete an existing person from Person Directory. The persistedFaceId(s), userData, person name and face
      * feature(s) in the person entry will all be deleted.
-     * 
+     *
      * @param personId Person ID of the person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -6186,7 +6186,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve a person's name and userData from Person Directory.
-     * 
+     *
      * @param personId Person ID of the person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -6207,7 +6207,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update name or userData of a person.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param name User defined name, maximum length is 128.
      * @param userData Optional user defined data. Length should not exceed 16K.
@@ -6231,7 +6231,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update name or userData of a person.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -6254,7 +6254,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all persons' information in Person Directory, including personId, name, and userData.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in Person Directory "Create Person".
      * &gt;
      * *
@@ -6264,14 +6264,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -6299,7 +6299,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all persons' information in Person Directory, including personId, name, and userData.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in Person Directory "Create Person".
      * &gt;
      * *
@@ -6309,14 +6309,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -6335,7 +6335,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all Dynamic Person Groups a person has been referenced by in Person Directory.
-     * 
+     *
      * Dynamic Person Groups are stored in alphabetical order of Dynamic Person Group ID created in Person Directory
      * "Create Dynamic Person Group".
      * &gt;
@@ -6346,14 +6346,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param personId Person ID of the person.
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
@@ -6382,7 +6382,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all Dynamic Person Groups a person has been referenced by in Person Directory.
-     * 
+     *
      * Dynamic Person Groups are stored in alphabetical order of Dynamic Person Group ID created in Person Directory
      * "Create Dynamic Person Group".
      * &gt;
@@ -6393,14 +6393,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param personId Person ID of the person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -6421,12 +6421,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person (see Person Directory "Create Person") for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until Person Directory "Delete Person Face" or "Delete Person" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -6449,7 +6449,7 @@ public final class FaceAdministrationAsyncClient {
      * * This is a long running operation. Use Response Header "Operation-Location" to determine when the AddFace
      * operation has successfully propagated for future requests to "Identify". For further information about
      * Operation-Locations see "Get Face Operation Status".
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param url URL of input image.
@@ -6492,12 +6492,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person (see Person Directory "Create Person") for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until Person Directory "Delete Person Face" or "Delete Person" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -6520,7 +6520,7 @@ public final class FaceAdministrationAsyncClient {
      * * This is a long running operation. Use Response Header "Operation-Location" to determine when the AddFace
      * operation has successfully propagated for future requests to "Identify". For further information about
      * Operation-Locations see "Get Face Operation Status".
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param url URL of input image.
@@ -6546,12 +6546,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person (see Person Directory "Create Person") for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until Person Directory "Delete Person Face" or "Delete Person" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -6574,7 +6574,7 @@ public final class FaceAdministrationAsyncClient {
      * * This is a long running operation. Use Response Header "Operation-Location" to determine when the AddFace
      * operation has successfully propagated for future requests to "Identify". For further information about
      * Operation-Locations see "Get Face Operation Status".
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param imageContent The image to be analyzed.
@@ -6615,12 +6615,12 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Add a face to a person (see Person Directory "Create Person") for face identification or verification.
-     * 
+     *
      * To deal with an image containing multiple faces, input face can be specified as an image with a targetFace
      * rectangle. It returns a persistedFaceId representing the added face. No image will be stored. Only the extracted
      * face feature(s) will be stored on server until Person Directory "Delete Person Face" or "Delete Person" is
      * called.
-     * 
+     *
      * Note that persistedFaceId is different from faceId generated by "Detect".
      * &gt;
      * *
@@ -6643,7 +6643,7 @@ public final class FaceAdministrationAsyncClient {
      * * This is a long running operation. Use Response Header "Operation-Location" to determine when the AddFace
      * operation has successfully propagated for future requests to "Identify". For further information about
      * Operation-Locations see "Get Face Operation Status".
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param imageContent The image to be analyzed.
@@ -6667,10 +6667,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Delete a face from a person in Person Directory by specified personId and persistedFaceId.
-     * 
+     *
      * Adding/deleting faces to/from a same person will be processed sequentially. Adding/deleting faces to/from
      * different persons are processed in parallel.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param persistedFaceId Face ID of the face.
@@ -6695,7 +6695,7 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Retrieve person face information. The persisted person face is specified by its personId. recognitionModel, and
      * persistedFaceId.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param persistedFaceId Face ID of the face.
@@ -6720,7 +6720,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a persisted face's userData field of a person.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param persistedFaceId Face ID of the face.
@@ -6747,7 +6747,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Update a persisted face's userData field of a person.
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @param persistedFaceId Face ID of the face.
@@ -6772,7 +6772,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve a person's persistedFaceIds representing the registered person face feature(s).
-     * 
+     *
      * @param personId Person ID of the person.
      * @param recognitionModel The 'recognitionModel' associated with faces.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -6795,21 +6795,21 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Creates a new Dynamic Person Group with specified dynamicPersonGroupId, name, and user-provided userData.
-     * 
+     *
      * A Dynamic Person Group is a container that references Person Directory "Create Person". After creation, use
      * Person Directory "Update Dynamic Person Group" to add/remove persons to/from the Dynamic Person Group.
-     * 
+     *
      * Dynamic Person Group and user data will be stored on server until Person Directory "Delete Dynamic Person Group"
      * is called. Use "Identify From Dynamic Person Group" with the dynamicPersonGroupId parameter to identify against
      * persons.
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * Person Directory "Delete Person" or "Delete Person Face" is called.
-     * 
+     *
      * 'recognitionModel' does not need to be specified with Dynamic Person Groups. Dynamic Person Groups are references
      * to Person Directory "Create Person" and therefore work with most all 'recognitionModels'. The faceId's provided
      * during "Identify" determine the 'recognitionModel' used.
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param name User defined name, maximum length is 128.
      * @param addPersonIds Array of personIds created by Person Directory "Create Person" to be added.
@@ -6837,21 +6837,21 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Creates a new Dynamic Person Group with specified dynamicPersonGroupId, name, and user-provided userData.
-     * 
+     *
      * A Dynamic Person Group is a container that references Person Directory "Create Person". After creation, use
      * Person Directory "Update Dynamic Person Group" to add/remove persons to/from the Dynamic Person Group.
-     * 
+     *
      * Dynamic Person Group and user data will be stored on server until Person Directory "Delete Dynamic Person Group"
      * is called. Use "Identify From Dynamic Person Group" with the dynamicPersonGroupId parameter to identify against
      * persons.
-     * 
+     *
      * No image will be stored. Only the person's extracted face feature(s) and userData will be stored on server until
      * Person Directory "Delete Person" or "Delete Person Face" is called.
-     * 
+     *
      * 'recognitionModel' does not need to be specified with Dynamic Person Groups. Dynamic Person Groups are references
      * to Person Directory "Create Person" and therefore work with most all 'recognitionModels'. The faceId's provided
      * during "Identify" determine the 'recognitionModel' used.
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -6875,10 +6875,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Deletes an existing Dynamic Person Group with specified dynamicPersonGroupId.
-     * 
+     *
      * Deleting this Dynamic Person Group only delete the references to persons data. To delete actual person see Person
      * Directory "Delete Person".
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -6898,10 +6898,10 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * Retrieve the information of a Dynamic Person Group, including its name and userData.
-     * 
+     *
      * This API returns Dynamic Person Group information only, use Person Directory "Get Dynamic Person Group Persons"
      * instead to retrieve person information under the Dynamic Person Group.
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -6923,9 +6923,9 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update the name or userData of an existing Dynamic Person Group, and manage its members by adding or removing
      * persons.
-     * 
+     *
      * The properties keep unchanged if they are not in request body.
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param name User defined name, maximum length is 128.
      * @param addPersonIds Array of personIds created by Person Directory "Create Person" to be added.
@@ -6957,9 +6957,9 @@ public final class FaceAdministrationAsyncClient {
     /**
      * Update the name or userData of an existing Dynamic Person Group, and manage its members by adding or removing
      * persons.
-     * 
+     *
      * The properties keep unchanged if they are not in request body.
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param name User defined name, maximum length is 128.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -6983,7 +6983,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all existing Dynamic Person Groups by dynamicPersonGroupId along with name and userData.
-     * 
+     *
      * Dynamic Person Groups are stored in alphabetical order of dynamicPersonGroupId.
      * &gt;
      * *
@@ -6993,14 +6993,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -7028,7 +7028,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all existing Dynamic Person Groups by dynamicPersonGroupId along with name and userData.
-     * 
+     *
      * Dynamic Person Groups are stored in alphabetical order of dynamicPersonGroupId.
      * &gt;
      * *
@@ -7038,14 +7038,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -7064,7 +7064,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all persons in the specified Dynamic Person Group.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in Person Directory "Create Person".
      * &gt;
      * *
@@ -7074,14 +7074,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
@@ -7110,7 +7110,7 @@ public final class FaceAdministrationAsyncClient {
 
     /**
      * List all persons in the specified Dynamic Person Group.
-     * 
+     *
      * Persons are stored in alphabetical order of personId created in Person Directory "Create Person".
      * &gt;
      * *
@@ -7120,14 +7120,14 @@ public final class FaceAdministrationAsyncClient {
      * * "top" parameter (int, optional) determines the maximum number of entries to be returned, with a limit of up to
      * 1000 entries per call. To retrieve additional entries beyond this limit, specify "start" with the personId of the
      * last entry returned in the current call.
-     * 
+     *
      * &gt; [!TIP]
      * &gt;
      * &gt; * For example, there are total 5 items with their IDs: "itemId1", ..., "itemId5".
      * &gt; * "start=&amp;top=" will return all 5 items.
      * &gt; * "start=&amp;top=2" will return "itemId1", "itemId2".
      * &gt; * "start=itemId2&amp;top=3" will return "itemId3", "itemId4", "itemId5".
-     * 
+     *
      * @param dynamicPersonGroupId ID of the dynamic person group.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.

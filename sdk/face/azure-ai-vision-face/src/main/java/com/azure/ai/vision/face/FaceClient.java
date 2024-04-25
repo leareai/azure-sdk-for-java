@@ -54,7 +54,7 @@ public final class FaceClient {
 
     /**
      * Initializes an instance of FaceClient class.
-     * 
+     *
      * @param serviceClient the service client implementation.
      */
     @Generated
@@ -64,13 +64,13 @@ public final class FaceClient {
 
     /**
      * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
-     * 
+     *
      * &gt; [!IMPORTANT]
      * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
      * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
      * makeup. Read more about this decision
      * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
-     * 
+     *
      * *
      * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
      * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
@@ -122,15 +122,15 @@ public final class FaceClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     url: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -230,7 +230,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -247,13 +247,13 @@ public final class FaceClient {
 
     /**
      * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
-     * 
+     *
      * &gt; [!IMPORTANT]
      * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
      * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
      * makeup. Read more about this decision
      * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
-     * 
+     *
      * *
      * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
      * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
@@ -305,13 +305,13 @@ public final class FaceClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * BinaryData
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -411,7 +411,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param imageContent The input image binary.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -429,19 +429,19 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a faceId array. A faceId array contains the
      * faces created by Detect.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target faceId array.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceId: String (Required)
@@ -452,9 +452,9 @@ public final class FaceClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -464,7 +464,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -482,19 +482,19 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a Face List. A 'faceListId' is created by
      * Create Face List.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target Face List.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceId: String (Required)
@@ -503,9 +503,9 @@ public final class FaceClient {
      *     faceListId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -515,7 +515,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -533,19 +533,19 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a Large Face List. A 'largeFaceListId' is
      * created by Create Large Face List.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target Large Face List.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceId: String (Required)
@@ -554,9 +554,9 @@ public final class FaceClient {
      *     largeFaceListId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -566,7 +566,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -584,7 +584,7 @@ public final class FaceClient {
 
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Person Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Person Group (given by personGroupId), and return candidate person(s) for that face ranked by
      * similarity confidence. The Person Group should be trained to make it ready for identification. See more in "Train
@@ -604,7 +604,7 @@ public final class FaceClient {
      * &gt; * The 'recognitionModel' associated with the query faces' faceIds should be the same as the
      * 'recognitionModel' used by the target Person Group.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceIds (Required): [
@@ -615,9 +615,9 @@ public final class FaceClient {
      *     confidenceThreshold: Double (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -631,7 +631,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -648,7 +648,7 @@ public final class FaceClient {
 
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Large Person Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Large Person Group (given by largePersonGroupId), and return candidate person(s) for that face
      * ranked by similarity confidence. The Large Person Group should be trained to make it ready for identification.
@@ -668,7 +668,7 @@ public final class FaceClient {
      * &gt; * The 'recognitionModel' associated with the query faces' faceIds should be the same as the
      * 'recognitionModel' used by the target Person Group or Large Person Group.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceIds (Required): [
@@ -679,9 +679,9 @@ public final class FaceClient {
      *     confidenceThreshold: Double (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -695,7 +695,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -714,7 +714,7 @@ public final class FaceClient {
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a person directory
      * personIds array.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Person Directory Persons (given by personIds), and return candidate person(s) for that face ranked
      * by similarity confidence.
@@ -731,7 +731,7 @@ public final class FaceClient {
      * &gt; * The Identify operation can only match faces obtained with the same recognition model, that is associated
      * with the query faces.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceIds (Required): [
@@ -744,9 +744,9 @@ public final class FaceClient {
      *     confidenceThreshold: Double (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -760,7 +760,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -779,7 +779,7 @@ public final class FaceClient {
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Dynamic Person
      * Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Dynamic Person Group (given by dynamicPersonGroupId), and return candidate person(s) for that face
      * ranked by similarity confidence.
@@ -796,7 +796,7 @@ public final class FaceClient {
      * &gt; * The Identify operation can only match faces obtained with the same recognition model, that is associated
      * with the query faces.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceIds (Required): [
@@ -807,9 +807,9 @@ public final class FaceClient {
      *     confidenceThreshold: Double (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -823,7 +823,7 @@ public final class FaceClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -841,7 +841,7 @@ public final class FaceClient {
 
     /**
      * Verify whether two faces belong to a same person.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -850,23 +850,23 @@ public final class FaceClient {
      * &gt; * For the scenarios that are sensitive to accuracy please make your own judgment.
      * &gt; * The 'recognitionModel' associated with the both faces should be the same.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceId1: String (Required)
      *     faceId2: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     isIdentical: boolean (Required)
      *     confidence: double (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -883,7 +883,7 @@ public final class FaceClient {
 
     /**
      * Verify whether a face belongs to a person in a Person Group.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -893,7 +893,7 @@ public final class FaceClient {
      * &gt; * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by
      * the Person Group.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceId: String (Required)
@@ -901,16 +901,16 @@ public final class FaceClient {
      *     personId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     isIdentical: boolean (Required)
      *     confidence: double (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -927,7 +927,7 @@ public final class FaceClient {
 
     /**
      * Verify whether a face belongs to a person in a Large Person Group.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -937,7 +937,7 @@ public final class FaceClient {
      * &gt; * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by
      * the Large Person Group.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceId: String (Required)
@@ -945,16 +945,16 @@ public final class FaceClient {
      *     personId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     isIdentical: boolean (Required)
      *     confidence: double (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -972,7 +972,7 @@ public final class FaceClient {
 
     /**
      * Verify whether a face belongs to a person in Person Directory.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -982,23 +982,23 @@ public final class FaceClient {
      * &gt; * The Verify operation can only match faces obtained with the same recognition model, that is associated
      * with the query face.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceId: String (Required)
      *     personId: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     isIdentical: boolean (Required)
      *     confidence: double (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1016,7 +1016,7 @@ public final class FaceClient {
 
     /**
      * Divide candidate faces into groups based on face similarity.
-     * 
+     *
      * &gt;
      * *
      * * The output is one or more disjointed face groups and a messyGroup. A face group contains faces that have
@@ -1028,7 +1028,7 @@ public final class FaceClient {
      * only have 2 candidate faces.
      * * The 'recognitionModel' associated with the query faces' faceIds should be the same.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     faceIds (Required): [
@@ -1036,9 +1036,9 @@ public final class FaceClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     groups (Required): [
@@ -1051,7 +1051,7 @@ public final class FaceClient {
      *     ]
      * }
      * }</pre>
-     * 
+     *
      * @param request The request parameter.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1068,13 +1068,13 @@ public final class FaceClient {
 
     /**
      * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
-     * 
+     *
      * &gt; [!IMPORTANT]
      * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
      * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
      * makeup. Read more about this decision
      * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
-     * 
+     *
      * *
      * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
      * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
@@ -1099,7 +1099,7 @@ public final class FaceClient {
      * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
      * More details, please refer to
      * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
-     * 
+     *
      * @param options Options for detectFromUrl API.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1154,13 +1154,13 @@ public final class FaceClient {
 
     /**
      * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
-     * 
+     *
      * &gt; [!IMPORTANT]
      * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
      * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
      * makeup. Read more about this decision
      * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
-     * 
+     *
      * *
      * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
      * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
@@ -1185,7 +1185,7 @@ public final class FaceClient {
      * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
      * More details, please refer to
      * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
-     * 
+     *
      * @param imageContent The input image binary.
      * @param returnFaceId Return faceIds of the detected faces or not. The default value is true.
      * @param returnFaceLandmarks Return face landmarks of the detected faces or not. The default value is false.
@@ -1247,13 +1247,13 @@ public final class FaceClient {
 
     /**
      * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
-     * 
+     *
      * &gt; [!IMPORTANT]
      * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
      * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
      * makeup. Read more about this decision
      * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
-     * 
+     *
      * *
      * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
      * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
@@ -1278,7 +1278,7 @@ public final class FaceClient {
      * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
      * More details, please refer to
      * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
-     * 
+     *
      * @param imageContent The input image binary.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1300,18 +1300,18 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a faceId array. A faceId array contains the
      * faces created by Detect.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target faceId array.
-     * 
+     *
      * @param faceId faceId of the query face. User needs to call "Detect" first to get a valid faceId. Note that this
      * faceId is not persisted and will expire 24 hours after the detection call.
      * @param faceIds An array of candidate faceIds. All of them are created by "Detect" and the faceIds will expire 24
@@ -1344,18 +1344,18 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a faceId array. A faceId array contains the
      * faces created by Detect.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target faceId array.
-     * 
+     *
      * @param faceId faceId of the query face. User needs to call "Detect" first to get a valid faceId. Note that this
      * faceId is not persisted and will expire 24 hours after the detection call.
      * @param faceIds An array of candidate faceIds. All of them are created by "Detect" and the faceIds will expire 24
@@ -1382,18 +1382,18 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a Face List. A 'faceListId' is created by
      * Create Face List.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target Face List.
-     * 
+     *
      * @param faceId faceId of the query face. User needs to call "Detect" first to get a valid faceId. Note that this
      * faceId is not persisted and will expire 24 hours after the detection call.
      * @param faceListId An existing user-specified unique candidate Face List, created in "Create Face List". Face List
@@ -1426,18 +1426,18 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a Face List. A 'faceListId' is created by
      * Create Face List.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target Face List.
-     * 
+     *
      * @param faceId faceId of the query face. User needs to call "Detect" first to get a valid faceId. Note that this
      * faceId is not persisted and will expire 24 hours after the detection call.
      * @param faceListId An existing user-specified unique candidate Face List, created in "Create Face List". Face List
@@ -1464,18 +1464,18 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a Large Face List. A 'largeFaceListId' is
      * created by Create Large Face List.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target Large Face List.
-     * 
+     *
      * @param faceId faceId of the query face. User needs to call "Detect" first to get a valid faceId. Note that this
      * faceId is not persisted and will expire 24 hours after the detection call.
      * @param largeFaceListId An existing user-specified unique candidate Large Face List, created in "Create Large Face
@@ -1509,18 +1509,18 @@ public final class FaceClient {
     /**
      * Given query face's faceId, to search the similar-looking faces from a Large Face List. A 'largeFaceListId' is
      * created by Create Large Face List.
-     * 
+     *
      * Depending on the input the returned similar faces list contains faceIds or persistedFaceIds ranked by similarity.
-     * 
+     *
      * Find similar has two working modes, "matchPerson" and "matchFace". "matchPerson" is the default mode that it
      * tries to find faces of the same person as possible by using internal same-person thresholds. It is useful to find
      * a known person's other photos. Note that an empty list will be returned if no faces pass the internal thresholds.
      * "matchFace" mode ignores same-person thresholds and returns ranked similar faces anyway, even the similarity is
      * low. It can be used in the cases like searching celebrity-looking faces.
-     * 
+     *
      * The 'recognitionModel' associated with the query faceId should be the same as the 'recognitionModel' used by the
      * target Large Face List.
-     * 
+     *
      * @param faceId faceId of the query face. User needs to call "Detect" first to get a valid faceId. Note that this
      * faceId is not persisted and will expire 24 hours after the detection call.
      * @param largeFaceListId An existing user-specified unique candidate Large Face List, created in "Create Large Face
@@ -1547,7 +1547,7 @@ public final class FaceClient {
 
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Person Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Person Group (given by personGroupId), and return candidate person(s) for that face ranked by
      * similarity confidence. The Person Group should be trained to make it ready for identification. See more in "Train
@@ -1566,7 +1566,7 @@ public final class FaceClient {
      * Person Group.
      * &gt; * The 'recognitionModel' associated with the query faces' faceIds should be the same as the
      * 'recognitionModel' used by the target Person Group.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param personGroupId personGroupId of the target Person Group, created by "Create Person Group". Parameter
@@ -1600,7 +1600,7 @@ public final class FaceClient {
 
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Person Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Person Group (given by personGroupId), and return candidate person(s) for that face ranked by
      * similarity confidence. The Person Group should be trained to make it ready for identification. See more in "Train
@@ -1619,7 +1619,7 @@ public final class FaceClient {
      * Person Group.
      * &gt; * The 'recognitionModel' associated with the query faces' faceIds should be the same as the
      * 'recognitionModel' used by the target Person Group.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param personGroupId personGroupId of the target Person Group, created by "Create Person Group". Parameter
@@ -1645,7 +1645,7 @@ public final class FaceClient {
 
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Large Person Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Large Person Group (given by largePersonGroupId), and return candidate person(s) for that face
      * ranked by similarity confidence. The Large Person Group should be trained to make it ready for identification.
@@ -1664,7 +1664,7 @@ public final class FaceClient {
      * Person Group/Large Person Group.
      * &gt; * The 'recognitionModel' associated with the query faces' faceIds should be the same as the
      * 'recognitionModel' used by the target Person Group or Large Person Group.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param largePersonGroupId largePersonGroupId of the target Large Person Group, created by "Create Large Person
@@ -1699,7 +1699,7 @@ public final class FaceClient {
 
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Large Person Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Large Person Group (given by largePersonGroupId), and return candidate person(s) for that face
      * ranked by similarity confidence. The Large Person Group should be trained to make it ready for identification.
@@ -1718,7 +1718,7 @@ public final class FaceClient {
      * Person Group/Large Person Group.
      * &gt; * The 'recognitionModel' associated with the query faces' faceIds should be the same as the
      * 'recognitionModel' used by the target Person Group or Large Person Group.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param largePersonGroupId largePersonGroupId of the target Large Person Group, created by "Create Large Person
@@ -1747,7 +1747,7 @@ public final class FaceClient {
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a person directory
      * personIds array.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Person Directory Persons (given by personIds), and return candidate person(s) for that face ranked
      * by similarity confidence.
@@ -1763,7 +1763,7 @@ public final class FaceClient {
      * person is identified, the returned candidates will be an empty array.
      * &gt; * The Identify operation can only match faces obtained with the same recognition model, that is associated
      * with the query faces.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param personIds Array of personIds created in Person Directory "Create Person". The valid number of personIds is
@@ -1798,7 +1798,7 @@ public final class FaceClient {
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a person directory
      * personIds array.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Person Directory Persons (given by personIds), and return candidate person(s) for that face ranked
      * by similarity confidence.
@@ -1814,7 +1814,7 @@ public final class FaceClient {
      * person is identified, the returned candidates will be an empty array.
      * &gt; * The Identify operation can only match faces obtained with the same recognition model, that is associated
      * with the query faces.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param personIds Array of personIds created in Person Directory "Create Person". The valid number of personIds is
@@ -1841,7 +1841,7 @@ public final class FaceClient {
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Dynamic Person
      * Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Dynamic Person Group (given by dynamicPersonGroupId), and return candidate person(s) for that face
      * ranked by similarity confidence.
@@ -1857,7 +1857,7 @@ public final class FaceClient {
      * person is identified, the returned candidates will be an empty array.
      * &gt; * The Identify operation can only match faces obtained with the same recognition model, that is associated
      * with the query faces.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param dynamicPersonGroupId DynamicPersonGroupId of the target PersonDirectory DynamicPersonGroup to match
@@ -1893,7 +1893,7 @@ public final class FaceClient {
     /**
      * 1-to-many identification to find the closest matches of the specific query person face from a Dynamic Person
      * Group.
-     * 
+     *
      * For each face in the faceIds array, Face Identify will compute similarities between the query face and all the
      * faces in the Dynamic Person Group (given by dynamicPersonGroupId), and return candidate person(s) for that face
      * ranked by similarity confidence.
@@ -1909,7 +1909,7 @@ public final class FaceClient {
      * person is identified, the returned candidates will be an empty array.
      * &gt; * The Identify operation can only match faces obtained with the same recognition model, that is associated
      * with the query faces.
-     * 
+     *
      * @param faceIds Array of query faces faceIds, created by the "Detect". Each of the faces are identified
      * independently. The valid number of faceIds is between [1, 10].
      * @param dynamicPersonGroupId DynamicPersonGroupId of the target PersonDirectory DynamicPersonGroup to match
@@ -1937,7 +1937,7 @@ public final class FaceClient {
 
     /**
      * Verify whether two faces belong to a same person.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -1945,7 +1945,7 @@ public final class FaceClient {
      * frontal, clear, and face size is 200x200 pixels (100 pixels between eyes) or bigger.
      * &gt; * For the scenarios that are sensitive to accuracy please make your own judgment.
      * &gt; * The 'recognitionModel' associated with the both faces should be the same.
-     * 
+     *
      * @param faceId1 The faceId of one face, come from "Detect".
      * @param faceId2 The faceId of another face, come from "Detect".
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -1968,7 +1968,7 @@ public final class FaceClient {
 
     /**
      * Verify whether a face belongs to a person in a Person Group.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -1977,7 +1977,7 @@ public final class FaceClient {
      * &gt; * For the scenarios that are sensitive to accuracy please make your own judgment.
      * &gt; * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by
      * the Person Group.
-     * 
+     *
      * @param faceId The faceId of the face, come from "Detect".
      * @param personGroupId Using existing personGroupId and personId for fast loading a specified person. personGroupId
      * is created in "Create Person Group".
@@ -2003,7 +2003,7 @@ public final class FaceClient {
 
     /**
      * Verify whether a face belongs to a person in a Large Person Group.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -2012,7 +2012,7 @@ public final class FaceClient {
      * &gt; * For the scenarios that are sensitive to accuracy please make your own judgment.
      * &gt; * The 'recognitionModel' associated with the query face should be the same as the 'recognitionModel' used by
      * the Large Person Group.
-     * 
+     *
      * @param faceId The faceId of the face, come from "Detect".
      * @param largePersonGroupId Using existing largePersonGroupId and personId for fast loading a specified person.
      * largePersonGroupId is created in "Create Large Person Group".
@@ -2040,7 +2040,7 @@ public final class FaceClient {
 
     /**
      * Verify whether a face belongs to a person in Person Directory.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -2049,7 +2049,7 @@ public final class FaceClient {
      * &gt; * For the scenarios that are sensitive to accuracy please make your own judgment.
      * &gt; * The Verify operation can only match faces obtained with the same recognition model, that is associated
      * with the query face.
-     * 
+     *
      * @param faceId The faceId of the face, come from "Detect".
      * @param personId Specify a certain person in PersonDirectory Person.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -2073,7 +2073,7 @@ public final class FaceClient {
 
     /**
      * Divide candidate faces into groups based on face similarity.
-     * 
+     *
      * &gt;
      * *
      * * The output is one or more disjointed face groups and a messyGroup. A face group contains faces that have
@@ -2084,7 +2084,7 @@ public final class FaceClient {
      * * Group API needs at least 2 candidate faces and 1000 at most. We suggest to try "Verify Face To Face" when you
      * only have 2 candidate faces.
      * * The 'recognitionModel' associated with the query faces' faceIds should be the same.
-     * 
+     *
      * @param faceIds Array of candidate faceIds created by "Detect". The maximum is 1000 faces.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.

@@ -40,7 +40,7 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Initializes an instance of FaceSessionAsyncClient class.
-     * 
+     *
      * @param serviceClient the service client implementation.
      */
     @Generated
@@ -50,23 +50,23 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Create a new detect liveness session.
-     * 
+     *
      * A session is best for client device scenarios where developers want to authorize a client device to perform only
      * a liveness detection without granting full access to their resource. Created sessions have a limited life span
      * and only authorize clients to perform the desired action before access is expired.
-     * 
+     *
      * Permissions includes...
      * &gt;
      * *
      * * Ability to call /detectLiveness/singleModal for up to 3 retries.
      * * A token lifetime of 10 minutes.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt; Client access can be revoked by deleting the session using the Delete Liveness Session operation. To
      * retrieve a result, use the Get Liveness Session. To audit the individual requests that a client has made to your
      * resource, use the List Liveness Session Audit Entries.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     livenessOperationMode: String(Passive) (Required)
@@ -76,16 +76,16 @@ public final class FaceSessionAsyncClient {
      *     authTokenTimeToLiveInSeconds: Integer (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     sessionId: String (Required)
      *     authToken: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param livenessSessionCreationContent Request for creating liveness session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -105,13 +105,13 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Delete all session related information for matching the specified session id.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt; Deleting a session deactivates the Session Auth Token by blocking future API calls made with that Auth
      * Token. While this can be used to remove any access for that token, those requests will still count towards
      * overall resource rate limits. It's best to leverage TokenTTL to limit length of tokens in the case that it is
      * misused.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -129,7 +129,7 @@ public final class FaceSessionAsyncClient {
     /**
      * Get session result of detectLiveness/singleModal call.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     id: String (Required)
@@ -186,7 +186,7 @@ public final class FaceSessionAsyncClient {
      *     }
      * }
      * }</pre>
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -205,9 +205,9 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Lists sessions for /detectLiveness/SingleModal.
-     * 
+     *
      * List sessions from the last sessionId greater than the 'start'.
-     * 
+     *
      * The result should be ordered by sessionId in ascending order.
      * <p><strong>Query Parameters</strong></p>
      * <table border="1">
@@ -220,7 +220,7 @@ public final class FaceSessionAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -233,7 +233,7 @@ public final class FaceSessionAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -260,7 +260,7 @@ public final class FaceSessionAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -310,7 +310,7 @@ public final class FaceSessionAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -330,17 +330,17 @@ public final class FaceSessionAsyncClient {
     /**
      * Create a new liveness session with verify. Client device submits VerifyImage during the
      * /detectLivenessWithVerify/singleModal call.
-     * 
+     *
      * A session is best for client device scenarios where developers want to authorize a client device to perform only
      * a liveness detection without granting full access to their resource. Created sessions have a limited life span
      * and only authorize clients to perform the desired action before access is expired.
-     * 
+     *
      * Permissions includes...
      * &gt;
      * *
      * * Ability to call /detectLivenessWithVerify/singleModal for up to 3 retries.
      * * A token lifetime of 10 minutes.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -349,12 +349,12 @@ public final class FaceSessionAsyncClient {
      * &gt; * To retrieve a result, use the Get Liveness With Verify Session.
      * &gt; * To audit the individual requests that a client has made to your resource, use the List Liveness With
      * Verify Session Audit Entries.
-     * 
+     *
      * Alternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.
      * &gt; [!NOTE]
      * &gt; Extra measures should be taken to validate that the client is sending the expected VerifyImage.
      * <p><strong>Request Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     livenessOperationMode: String(Passive) (Required)
@@ -364,16 +364,16 @@ public final class FaceSessionAsyncClient {
      *     authTokenTimeToLiveInSeconds: Integer (Optional)
      * }
      * }</pre>
-     * 
+     *
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     sessionId: String (Required)
      *     authToken: String (Required)
      * }
      * }</pre>
-     * 
+     *
      * @param livenessSessionCreationContent Request for creating liveness session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -393,17 +393,17 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Create a new liveness session with verify. Provide the verify image during session creation.
-     * 
+     *
      * A session is best for client device scenarios where developers want to authorize a client device to perform only
      * a liveness detection without granting full access to their resource. Created sessions have a limited life span
      * and only authorize clients to perform the desired action before access is expired.
-     * 
+     *
      * Permissions includes...
      * &gt;
      * *
      * * Ability to call /detectLivenessWithVerify/singleModal for up to 3 retries.
      * * A token lifetime of 10 minutes.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -412,10 +412,10 @@ public final class FaceSessionAsyncClient {
      * &gt; * To retrieve a result, use the Get Liveness With Verify Session.
      * &gt; * To audit the individual requests that a client has made to your resource, use the List Liveness With
      * Verify Session Audit Entries.
-     * 
+     *
      * Recommended Option: VerifyImage is provided during session creation.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     sessionId: String (Required)
@@ -431,7 +431,7 @@ public final class FaceSessionAsyncClient {
      *     }
      * }
      * }</pre>
-     * 
+     *
      * @param livenessSessionWithVerifyImageCreationContent Request of liveness with verify session creation.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -452,13 +452,13 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Delete all session related information for matching the specified session id.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt; Deleting a session deactivates the Session Auth Token by blocking future API calls made with that Auth
      * Token. While this can be used to remove any access for that token, those requests will still count towards
      * overall resource rate limits. It's best to leverage TokenTTL to limit length of tokens in the case that it is
      * misused.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -477,7 +477,7 @@ public final class FaceSessionAsyncClient {
     /**
      * Get session result of detectLivenessWithVerify/singleModal call.
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * {
      *     id: String (Required)
@@ -534,7 +534,7 @@ public final class FaceSessionAsyncClient {
      *     }
      * }
      * }</pre>
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -553,9 +553,9 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Lists sessions for /detectLivenessWithVerify/SingleModal.
-     * 
+     *
      * List sessions from the last sessionId greater than the "start".
-     * 
+     *
      * The result should be ordered by sessionId in ascending order.
      * <p><strong>Query Parameters</strong></p>
      * <table border="1">
@@ -568,7 +568,7 @@ public final class FaceSessionAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -581,7 +581,7 @@ public final class FaceSessionAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
@@ -608,7 +608,7 @@ public final class FaceSessionAsyncClient {
      * </table>
      * You can add these to a request with {@link RequestOptions#addQueryParam}
      * <p><strong>Response Body Schema</strong></p>
-     * 
+     *
      * <pre>{@code
      * [
      *      (Required){
@@ -658,7 +658,7 @@ public final class FaceSessionAsyncClient {
      *     }
      * ]
      * }</pre>
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param requestOptions The options to configure the HTTP request before HTTP client sends it.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -677,22 +677,22 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Create a new detect liveness session.
-     * 
+     *
      * A session is best for client device scenarios where developers want to authorize a client device to perform only
      * a liveness detection without granting full access to their resource. Created sessions have a limited life span
      * and only authorize clients to perform the desired action before access is expired.
-     * 
+     *
      * Permissions includes...
      * &gt;
      * *
      * * Ability to call /detectLiveness/singleModal for up to 3 retries.
      * * A token lifetime of 10 minutes.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt; Client access can be revoked by deleting the session using the Delete Liveness Session operation. To
      * retrieve a result, use the Get Liveness Session. To audit the individual requests that a client has made to your
      * resource, use the List Liveness Session Audit Entries.
-     * 
+     *
      * @param livenessSessionCreationContent Request for creating liveness session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -715,13 +715,13 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Delete all session related information for matching the specified session id.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt; Deleting a session deactivates the Session Auth Token by blocking future API calls made with that Auth
      * Token. While this can be used to remove any access for that token, those requests will still count towards
      * overall resource rate limits. It's best to leverage TokenTTL to limit length of tokens in the case that it is
      * misused.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -741,7 +741,7 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Get session result of detectLiveness/singleModal call.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -762,11 +762,11 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Lists sessions for /detectLiveness/SingleModal.
-     * 
+     *
      * List sessions from the last sessionId greater than the 'start'.
-     * 
+     *
      * The result should be ordered by sessionId in ascending order.
-     * 
+     *
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -794,11 +794,11 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Lists sessions for /detectLiveness/SingleModal.
-     * 
+     *
      * List sessions from the last sessionId greater than the 'start'.
-     * 
+     *
      * The result should be ordered by sessionId in ascending order.
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -817,7 +817,7 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Gets session requests and response body for the session.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
@@ -847,7 +847,7 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Gets session requests and response body for the session.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -869,17 +869,17 @@ public final class FaceSessionAsyncClient {
     /**
      * Create a new liveness session with verify. Client device submits VerifyImage during the
      * /detectLivenessWithVerify/singleModal call.
-     * 
+     *
      * A session is best for client device scenarios where developers want to authorize a client device to perform only
      * a liveness detection without granting full access to their resource. Created sessions have a limited life span
      * and only authorize clients to perform the desired action before access is expired.
-     * 
+     *
      * Permissions includes...
      * &gt;
      * *
      * * Ability to call /detectLivenessWithVerify/singleModal for up to 3 retries.
      * * A token lifetime of 10 minutes.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -888,11 +888,11 @@ public final class FaceSessionAsyncClient {
      * &gt; * To retrieve a result, use the Get Liveness With Verify Session.
      * &gt; * To audit the individual requests that a client has made to your resource, use the List Liveness With
      * Verify Session Audit Entries.
-     * 
+     *
      * Alternative Option: Client device submits VerifyImage during the /detectLivenessWithVerify/singleModal call.
      * &gt; [!NOTE]
      * &gt; Extra measures should be taken to validate that the client is sending the expected VerifyImage.
-     * 
+     *
      * @param livenessSessionCreationContent Request for creating liveness session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -915,17 +915,17 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Create a new liveness session with verify. Provide the verify image during session creation.
-     * 
+     *
      * A session is best for client device scenarios where developers want to authorize a client device to perform only
      * a liveness detection without granting full access to their resource. Created sessions have a limited life span
      * and only authorize clients to perform the desired action before access is expired.
-     * 
+     *
      * Permissions includes...
      * &gt;
      * *
      * * Ability to call /detectLivenessWithVerify/singleModal for up to 3 retries.
      * * A token lifetime of 10 minutes.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt;
      * &gt; *
@@ -934,9 +934,9 @@ public final class FaceSessionAsyncClient {
      * &gt; * To retrieve a result, use the Get Liveness With Verify Session.
      * &gt; * To audit the individual requests that a client has made to your resource, use the List Liveness With
      * Verify Session Audit Entries.
-     * 
+     *
      * Recommended Option: VerifyImage is provided during session creation.
-     * 
+     *
      * @param livenessSessionWithVerifyImageCreationContent Request of liveness with verify session creation.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -966,13 +966,13 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Delete all session related information for matching the specified session id.
-     * 
+     *
      * &gt; [!NOTE]
      * &gt; Deleting a session deactivates the Session Auth Token by blocking future API calls made with that Auth
      * Token. While this can be used to remove any access for that token, those requests will still count towards
      * overall resource rate limits. It's best to leverage TokenTTL to limit length of tokens in the case that it is
      * misused.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -992,7 +992,7 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Get session result of detectLivenessWithVerify/singleModal call.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
@@ -1013,11 +1013,11 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Lists sessions for /detectLivenessWithVerify/SingleModal.
-     * 
+     *
      * List sessions from the last sessionId greater than the "start".
-     * 
+     *
      * The result should be ordered by sessionId in ascending order.
-     * 
+     *
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
@@ -1045,11 +1045,11 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Lists sessions for /detectLivenessWithVerify/SingleModal.
-     * 
+     *
      * List sessions from the last sessionId greater than the "start".
-     * 
+     *
      * The result should be ordered by sessionId in ascending order.
-     * 
+     *
      * @throws HttpResponseException thrown if the request is rejected by server.
      * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
      * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
@@ -1068,7 +1068,7 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Gets session requests and response body for the session.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @param start List resources greater than the "start". It contains no more than 64 characters. Default is empty.
      * @param top The number of items to list, ranging in [1, 1000]. Default is 1000.
@@ -1098,7 +1098,7 @@ public final class FaceSessionAsyncClient {
 
     /**
      * Gets session requests and response body for the session.
-     * 
+     *
      * @param sessionId The unique ID to reference this session.
      * @throws IllegalArgumentException thrown if parameters fail the validation.
      * @throws HttpResponseException thrown if the request is rejected by server.
