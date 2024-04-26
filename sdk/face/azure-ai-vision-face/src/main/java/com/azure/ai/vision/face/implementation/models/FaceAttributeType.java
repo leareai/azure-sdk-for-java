@@ -104,4 +104,77 @@ public final class FaceAttributeType extends ExpandableStringEnum<FaceAttributeT
     public static Collection<FaceAttributeType> values() {
         return values(FaceAttributeType.class);
     }
+
+    public static class Detection01Supported {
+        /**
+         * 3-D roll/yaw/pitch angles for face direction.
+         */
+        @Generated
+        public static final FaceAttributeType HEAD_POSE = FaceAttributeType.HEAD_POSE;
+
+        /**
+         * Glasses type. Values include 'NoGlasses', 'ReadingGlasses', 'Sunglasses', 'SwimmingGoggles'.
+         */
+        @Generated
+        public static final FaceAttributeType GLASSES = FaceAttributeType.GLASSES;
+
+        /**
+         * Whether each facial area is occluded, including forehead, eyes and mouth.
+         */
+        @Generated
+        public static final FaceAttributeType OCCLUSION = FaceAttributeType.OCCLUSION;
+
+        /**
+         * Accessories around face, including 'headwear', 'glasses' and 'mask'. Empty array means no accessories detected.
+         * Note this is after a face is detected. Large mask could result in no face to be detected.
+         */
+        @Generated
+        public static final FaceAttributeType ACCESSORIES = FaceAttributeType.ACCESSORIES;
+
+        /**
+         * Face is blurry or not. Level returns 'Low', 'Medium' or 'High'. Value returns a number between [0,1], the larger
+         * the blurrier.
+         */
+        @Generated
+        public static final FaceAttributeType BLUR = FaceAttributeType.BLUR;
+
+        /**
+         * Face exposure level. Level returns 'GoodExposure', 'OverExposure' or 'UnderExposure'.
+         */
+        @Generated
+        public static final FaceAttributeType EXPOSURE = FaceAttributeType.EXPOSURE;
+
+        /**
+         * Noise level of face pixels. Level returns 'Low', 'Medium' and 'High'. Value returns a number between [0,1], the
+         * larger the noisier.
+         */
+        @Generated
+        public static final FaceAttributeType NOISE = FaceAttributeType.NOISE;
+
+    }
+
+    public static class Detection03Supported {
+        /**
+         * 3-D roll/yaw/pitch angles for face direction.
+         */
+        @Generated
+        public static final FaceAttributeType HEAD_POSE = FaceAttributeType.HEAD_POSE;
+
+        /**
+         * Whether each face is wearing a mask. Mask type returns 'noMask', 'faceMask', 'otherMaskOrOcclusion', or
+         * 'uncertain'. Value returns a boolean 'noseAndMouthCovered' indicating whether nose and mouth are covered.
+         */
+        @Generated
+        public static final FaceAttributeType MASK = FaceAttributeType.MASK;
+    }
+
+    public static class Recognition03Supported {
+        @Generated
+        public static final FaceAttributeType QUALITY_FOR_RECOGNITION = FaceAttributeType.QUALITY_FOR_RECOGNITION;
+    }
+
+    public static class Recognition04Supported {
+        @Generated
+        public static final FaceAttributeType QUALITY_FOR_RECOGNITION = FaceAttributeType.QUALITY_FOR_RECOGNITION;
+    }
 }
