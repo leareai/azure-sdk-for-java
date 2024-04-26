@@ -7058,4 +7058,21 @@ public final class FaceAdministrationClient {
     private static final TypeReference<List<DynamicPersonGroup>> TYPE_REFERENCE_LIST_DYNAMIC_PERSON_GROUP
         = new TypeReference<List<DynamicPersonGroup>>() {
         };
+
+    public SyncPollerContainer<CreatePersonResult, FaceOperationStatus, Void> beginCreatePerson(String name) {
+        return beginCreatePerson(name, null, new RequestOptions());
+    }
+
+    public SyncPollerContainer<CreatePersonResult, FaceOperationStatus, Void> beginCreatePerson(String name, String userData) {
+        return beginCreatePerson(name, userData, new RequestOptions());
+    }
+
+    public SyncPollerContainer<CreatePersonResult, FaceOperationStatus, Void> beginCreatePerson(String name, String userData, RequestOptions requestOptions) {
+        CreatePersonRequest activationRequestObj = new CreatePersonRequest(name).setUserData(userData);
+        BinaryData request = BinaryData.fromObject(activationRequestObj);
+        Response<BinaryData> activationResponse = createPersonWithResponse(request, requestOptions);
+        CreatePersonResult createPersonResult = activationResponse.getValue().toObject(CreatePersonResult.class);
+
+        return FaceSyncPoller.beginOperation(requestOptions, serviceClient.getHttpPipeline(), activationResponse, createPersonResult);
+    }
 }

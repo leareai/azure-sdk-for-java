@@ -22,8 +22,7 @@ public final class VerifyImageFileDetails {
     /*
      * The filename of the file.
      */
-    @Generated
-    private String filename;
+    private final String filename = "verify-image";
 
     /*
      * The content-type of the file.
@@ -63,14 +62,12 @@ public final class VerifyImageFileDetails {
 
     /**
      * Set the filename property: The filename of the file.
-     * 
+     *
      * @param filename the filename value to set.
      * @return the VerifyImageFileDetails object itself.
      */
-    @Generated
-    public VerifyImageFileDetails setFilename(String filename) {
-        this.filename = filename;
-        return this;
+    private VerifyImageFileDetails setFilename(String filename) {
+        throw new UnsupportedOperationException();
     }
 
     /**
