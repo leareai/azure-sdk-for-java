@@ -21,13 +21,7 @@ import com.azure.ai.vision.face.implementation.models.VerifyFaceToFaceRequest;
 import com.azure.ai.vision.face.implementation.models.VerifyFromLargePersonGroupRequest;
 import com.azure.ai.vision.face.implementation.models.VerifyFromPersonDirectoryRequest;
 import com.azure.ai.vision.face.implementation.models.VerifyFromPersonGroupRequest;
-import com.azure.ai.vision.face.models.FaceDetectionModel;
-import com.azure.ai.vision.face.models.FaceFindSimilarResult;
-import com.azure.ai.vision.face.models.FaceGroupingResult;
-import com.azure.ai.vision.face.models.FaceIdentificationResult;
-import com.azure.ai.vision.face.models.FaceRecognitionModel;
-import com.azure.ai.vision.face.models.FaceVerificationResult;
-import com.azure.ai.vision.face.models.FindSimilarMatchMode;
+import com.azure.ai.vision.face.models.*;
 import com.azure.core.annotation.Generated;
 import com.azure.core.annotation.ReturnType;
 import com.azure.core.annotation.ServiceClient;
@@ -239,9 +233,8 @@ public final class FaceClient {
      * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
      * @return the response body along with {@link Response}.
      */
-    @Generated
     @ServiceMethod(returns = ReturnType.SINGLE)
-    Response<BinaryData> detectFromUrlWithResponse(BinaryData request, RequestOptions requestOptions) {
+    public Response<BinaryData> detectFromUrlWithResponse(BinaryData request, RequestOptions requestOptions) {
         return this.serviceClient.detectFromUrlWithResponse(request, requestOptions);
     }
 
@@ -420,9 +413,8 @@ public final class FaceClient {
      * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
      * @return the response body along with {@link Response}.
      */
-    @Generated
     @ServiceMethod(returns = ReturnType.SINGLE)
-    Response<BinaryData> detectWithResponse(BinaryData imageContent, RequestOptions requestOptions) {
+    public Response<BinaryData> detectWithResponse(BinaryData imageContent, RequestOptions requestOptions) {
         return this.serviceClient.detectWithResponse(imageContent, requestOptions);
     }
 
@@ -1149,99 +1141,6 @@ public final class FaceClient {
             requestOptions.addQueryParam("faceIdTimeToLive", String.valueOf(faceIdTimeToLive), false);
         }
         return detectFromUrlWithResponse(request, requestOptions).getValue()
-            .toObject(TYPE_REFERENCE_LIST_FACE_DETECTION_RESULT);
-    }
-
-    /**
-     * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
-     *
-     * &gt; [!IMPORTANT]
-     * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
-     * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
-     * makeup. Read more about this decision
-     * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
-     *
-     * *
-     * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
-     * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
-     * features will expire and be deleted at the time specified by faceIdTimeToLive after the original detection call.
-     * * Optional parameters include faceId, landmarks, and attributes. Attributes include headPose, glasses, occlusion,
-     * accessories, blur, exposure, noise, mask, and qualityForRecognition. Some of the results returned for specific
-     * attributes may not be highly accurate.
-     * * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.
-     * * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with
-     * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
-     * * Up to 100 faces can be returned for an image. Faces are ranked by face rectangle size from large to small.
-     * * For optimal results when querying "Identify", "Verify", and "Find Similar" ('returnFaceId' is true), please use
-     * faces that are: frontal, clear, and with a minimum size of 200x200 pixels (100 pixels between eyes).
-     * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
-     * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
-     * * 'detection_02': Face attributes and landmarks are disabled if you choose this detection model.
-     * * 'detection_03': Face attributes (mask and headPose only) and landmarks are supported if you choose this
-     * detection model.
-     * * Different 'recognitionModel' values are provided. If follow-up operations like "Verify", "Identify", "Find
-     * Similar" are needed, please specify the recognition model with 'recognitionModel' parameter. The default value
-     * for 'recognitionModel' is 'recognition_01', if latest model needed, please explicitly specify the model you need
-     * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
-     * More details, please refer to
-     * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
-     *
-     * @param imageContent The input image binary.
-     * @param returnFaceId Return faceIds of the detected faces or not. The default value is true.
-     * @param returnFaceLandmarks Return face landmarks of the detected faces or not. The default value is false.
-     * @param returnFaceAttributes Analyze and return the one or more specified face attributes in the comma-separated
-     * string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and
-     * time cost.
-     * @param recognitionModel The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel'
-     * values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is
-     * 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared
-     * with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'.
-     * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
-     * @param detectionModel The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel'
-     * values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'.
-     * @param faceIdTimeToLive The number of seconds for the face ID being cached. Supported range from 60 seconds up to
-     * 86400 seconds. The default value is 86400 (24 hours).
-     * @throws IllegalArgumentException thrown if parameters fail the validation.
-     * @throws HttpResponseException thrown if the request is rejected by server.
-     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
-     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
-     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
-     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
-     * @return the response.
-     */
-    @Generated
-    @ServiceMethod(returns = ReturnType.SINGLE)
-    List<FaceDetectionResult> detect(BinaryData imageContent, Boolean returnFaceId, Boolean returnFaceLandmarks,
-        List<FaceAttributeType> returnFaceAttributes, FaceRecognitionModel recognitionModel,
-        Boolean returnRecognitionModel, FaceDetectionModel detectionModel, Integer faceIdTimeToLive) {
-        // Generated convenience method for detectWithResponse
-        RequestOptions requestOptions = new RequestOptions();
-        if (returnFaceId != null) {
-            requestOptions.addQueryParam("returnFaceId", String.valueOf(returnFaceId), false);
-        }
-        if (returnFaceLandmarks != null) {
-            requestOptions.addQueryParam("returnFaceLandmarks", String.valueOf(returnFaceLandmarks), false);
-        }
-        if (returnFaceAttributes != null) {
-            requestOptions.addQueryParam("returnFaceAttributes",
-                returnFaceAttributes.stream()
-                    .map(paramItemValue -> Objects.toString(paramItemValue, ""))
-                    .collect(Collectors.joining(",")),
-                false);
-        }
-        if (recognitionModel != null) {
-            requestOptions.addQueryParam("recognitionModel", recognitionModel.toString(), false);
-        }
-        if (returnRecognitionModel != null) {
-            requestOptions.addQueryParam("returnRecognitionModel", String.valueOf(returnRecognitionModel), false);
-        }
-        if (detectionModel != null) {
-            requestOptions.addQueryParam("detectionModel", detectionModel.toString(), false);
-        }
-        if (faceIdTimeToLive != null) {
-            requestOptions.addQueryParam("faceIdTimeToLive", String.valueOf(faceIdTimeToLive), false);
-        }
-        return detectWithResponse(imageContent, requestOptions).getValue()
             .toObject(TYPE_REFERENCE_LIST_FACE_DETECTION_RESULT);
     }
 
@@ -2118,4 +2017,442 @@ public final class FaceClient {
     private static final TypeReference<List<FaceFindSimilarResult>> TYPE_REFERENCE_LIST_FACE_FIND_SIMILAR_RESULT
         = new TypeReference<List<FaceFindSimilarResult>>() {
         };
+
+    /**
+     * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
+     *
+     * &gt; [!IMPORTANT]
+     * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
+     * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
+     * makeup. Read more about this decision
+     * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
+     *
+     * *
+     * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
+     * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
+     * features will expire and be deleted at the time specified by faceIdTimeToLive after the original detection call.
+     * * Optional parameters include faceId, landmarks, and attributes. Attributes include headPose, glasses, occlusion,
+     * accessories, blur, exposure, noise, mask, and qualityForRecognition. Some of the results returned for specific
+     * attributes may not be highly accurate.
+     * * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.
+     * * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with
+     * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
+     * * Up to 100 faces can be returned for an image. Faces are ranked by face rectangle size from large to small.
+     * * For optimal results when querying "Identify", "Verify", and "Find Similar" ('returnFaceId' is true), please use
+     * faces that are: frontal, clear, and with a minimum size of 200x200 pixels (100 pixels between eyes).
+     * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
+     * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
+     * * 'detection_02': Face attributes and landmarks are disabled if you choose this detection model.
+     * * 'detection_03': Face attributes (mask and headPose only) and landmarks are supported if you choose this
+     * detection model.
+     * * Different 'recognitionModel' values are provided. If follow-up operations like "Verify", "Identify", "Find
+     * Similar" are needed, please specify the recognition model with 'recognitionModel' parameter. The default value
+     * for 'recognitionModel' is 'recognition_01', if latest model needed, please explicitly specify the model you need
+     * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
+     * More details, please refer to
+     * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
+     *
+     * @param imageContent The input image binary.
+     * @param options Options for detect API.
+     * 86400 seconds. The default value is 86400 (24 hours).
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return the response.
+     */
+    @ServiceMethod(returns = ReturnType.SINGLE)
+    public List<FaceDetectionResult> detect(BinaryData imageContent, DetectOptions options) {
+        return this.detect(
+            imageContent,
+            options.getDetectionModel(),
+            options.getRecognitionModel(),
+            options.isReturnFaceId(),
+            options.getReturnFaceAttributes(),
+            options.isReturnFaceLandmarks(),
+            options.isReturnRecognitionModel(),
+            options.getFaceIdTimeToLive());
+    }
+
+    /**
+     * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
+     *
+     * &gt; [!IMPORTANT]
+     * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
+     * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
+     * makeup. Read more about this decision
+     * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
+     *
+     * *
+     * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
+     * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
+     * features will expire and be deleted at the time specified by faceIdTimeToLive after the original detection call.
+     * * Optional parameters include faceId, landmarks, and attributes. Attributes include headPose, glasses, occlusion,
+     * accessories, blur, exposure, noise, mask, and qualityForRecognition. Some of the results returned for specific
+     * attributes may not be highly accurate.
+     * * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.
+     * * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with
+     * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
+     * * Up to 100 faces can be returned for an image. Faces are ranked by face rectangle size from large to small.
+     * * For optimal results when querying "Identify", "Verify", and "Find Similar" ('returnFaceId' is true), please use
+     * faces that are: frontal, clear, and with a minimum size of 200x200 pixels (100 pixels between eyes).
+     * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
+     * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
+     * * 'detection_02': Face attributes and landmarks are disabled if you choose this detection model.
+     * * 'detection_03': Face attributes (mask and headPose only) and landmarks are supported if you choose this
+     * detection model.
+     * * Different 'recognitionModel' values are provided. If follow-up operations like "Verify", "Identify", "Find
+     * Similar" are needed, please specify the recognition model with 'recognitionModel' parameter. The default value
+     * for 'recognitionModel' is 'recognition_01', if latest model needed, please explicitly specify the model you need
+     * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
+     * More details, please refer to
+     * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
+     *
+     * @param imageContent The input image binary.
+     * @param detectionModel The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel'
+     * values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'
+     * @param recognitionModel The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel'
+     * values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is
+     * 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared
+     * with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'.
+     * @param returnFaceId Return faceIds of the detected faces or not. The default value is true.
+     * @param returnFaceAttributes Analyze and return the one or more specified face attributes in the comma-separated
+     * string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and
+     * time cost.
+     * @param returnFaceLandmarks Return face landmarks of the detected faces or not. The default value is false.
+     * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
+     * @param faceIdTimeToLive The number of seconds for the face ID being cached. Supported range from 60 seconds up to
+     * 86400 seconds. The default value is 86400 (24 hours).
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return the response.
+     */
+    @ServiceMethod(returns = ReturnType.SINGLE)
+    public List<FaceDetectionResult> detect(BinaryData imageContent, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+         boolean returnFaceId, List<FaceAttributeType> returnFaceAttributes, Boolean returnFaceLandmarks, Boolean returnRecognitionModel,
+         Integer faceIdTimeToLive)
+    {
+
+        RequestOptions requestOptions = new RequestOptions();
+        AddQueryParameterForDetection(
+            requestOptions,
+            detectionModel,
+            recognitionModel,
+            returnFaceId,
+            returnFaceAttributes,
+            returnFaceLandmarks,
+            returnRecognitionModel,
+            faceIdTimeToLive);
+
+        return detectWithResponse(imageContent, requestOptions).getValue()
+            .toObject(TYPE_REFERENCE_LIST_FACE_DETECTION_RESULT);
+    }
+
+    /**
+     * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
+     *
+     * &gt; [!IMPORTANT]
+     * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
+     * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
+     * makeup. Read more about this decision
+     * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
+     *
+     * *
+     * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
+     * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
+     * features will expire and be deleted at the time specified by faceIdTimeToLive after the original detection call.
+     * * Optional parameters include faceId, landmarks, and attributes. Attributes include headPose, glasses, occlusion,
+     * accessories, blur, exposure, noise, mask, and qualityForRecognition. Some of the results returned for specific
+     * attributes may not be highly accurate.
+     * * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.
+     * * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with
+     * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
+     * * Up to 100 faces can be returned for an image. Faces are ranked by face rectangle size from large to small.
+     * * For optimal results when querying "Identify", "Verify", and "Find Similar" ('returnFaceId' is true), please use
+     * faces that are: frontal, clear, and with a minimum size of 200x200 pixels (100 pixels between eyes).
+     * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
+     * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
+     * * 'detection_02': Face attributes and landmarks are disabled if you choose this detection model.
+     * * 'detection_03': Face attributes (mask and headPose only) and landmarks are supported if you choose this
+     * detection model.
+     * * Different 'recognitionModel' values are provided. If follow-up operations like "Verify", "Identify", "Find
+     * Similar" are needed, please specify the recognition model with 'recognitionModel' parameter. The default value
+     * for 'recognitionModel' is 'recognition_01', if latest model needed, please explicitly specify the model you need
+     * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
+     * More details, please refer to
+     * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
+     *
+     * @param imageContent The input image binary.
+     * @param detectionModel The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel'
+     * values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'
+     * @param recognitionModel The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel'
+     * values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is
+     * 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared
+     * with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'.
+     * @param returnFaceId Return faceIds of the detected faces or not. The default value is true.
+     * string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and
+     * time cost.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return the response.
+     */
+    @ServiceMethod(returns = ReturnType.SINGLE)
+    public List<FaceDetectionResult> detect(BinaryData imageContent, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+                                             boolean returnFaceId)
+    {
+        return this.detect(
+            imageContent,
+            detectionModel,
+            recognitionModel,
+            returnFaceId,
+            null,
+            null,
+            null,
+            null);
+    }
+
+    /**
+     * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
+     *
+     * &gt; [!IMPORTANT]
+     * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
+     * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
+     * makeup. Read more about this decision
+     * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
+     *
+     * *
+     * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
+     * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
+     * features will expire and be deleted at the time specified by faceIdTimeToLive after the original detection call.
+     * * Optional parameters include faceId, landmarks, and attributes. Attributes include headPose, glasses, occlusion,
+     * accessories, blur, exposure, noise, mask, and qualityForRecognition. Some of the results returned for specific
+     * attributes may not be highly accurate.
+     * * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.
+     * * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with
+     * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
+     * * Up to 100 faces can be returned for an image. Faces are ranked by face rectangle size from large to small.
+     * * For optimal results when querying "Identify", "Verify", and "Find Similar" ('returnFaceId' is true), please use
+     * faces that are: frontal, clear, and with a minimum size of 200x200 pixels (100 pixels between eyes).
+     * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
+     * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
+     * * 'detection_02': Face attributes and landmarks are disabled if you choose this detection model.
+     * * 'detection_03': Face attributes (mask and headPose only) and landmarks are supported if you choose this
+     * detection model.
+     * * Different 'recognitionModel' values are provided. If follow-up operations like "Verify", "Identify", "Find
+     * Similar" are needed, please specify the recognition model with 'recognitionModel' parameter. The default value
+     * for 'recognitionModel' is 'recognition_01', if latest model needed, please explicitly specify the model you need
+     * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
+     * More details, please refer to
+     * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
+     *
+     * @param imageContent The input image binary.
+     * @param detectionModel The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel'
+     * values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'
+     * @param recognitionModel The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel'
+     * values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is
+     * 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared
+     * with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'.
+     * @param returnFaceId Return faceIds of the detected faces or not. The default value is true.
+     * @param returnFaceAttributes Analyze and return the one or more specified face attributes in the comma-separated
+     * string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and
+     * time cost.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return the response.
+     */
+    @Generated
+    @ServiceMethod(returns = ReturnType.SINGLE)
+    public List<FaceDetectionResult> detect(BinaryData imageContent, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+         Boolean returnFaceId, List<FaceAttributeType> returnFaceAttributes)
+    {
+        return this.detect(
+            imageContent,
+            detectionModel,
+            recognitionModel,
+            returnFaceId,
+            returnFaceAttributes,
+            null,
+            null,
+            null);
+    }
+
+    /**
+     * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
+     *
+     * &gt; [!IMPORTANT]
+     * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
+     * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
+     * makeup. Read more about this decision
+     * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
+     *
+     * *
+     * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
+     * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
+     * features will expire and be deleted at the time specified by faceIdTimeToLive after the original detection call.
+     * * Optional parameters include faceId, landmarks, and attributes. Attributes include headPose, glasses, occlusion,
+     * accessories, blur, exposure, noise, mask, and qualityForRecognition. Some of the results returned for specific
+     * attributes may not be highly accurate.
+     * * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.
+     * * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with
+     * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
+     * * Up to 100 faces can be returned for an image. Faces are ranked by face rectangle size from large to small.
+     * * For optimal results when querying "Identify", "Verify", and "Find Similar" ('returnFaceId' is true), please use
+     * faces that are: frontal, clear, and with a minimum size of 200x200 pixels (100 pixels between eyes).
+     * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
+     * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
+     * * 'detection_02': Face attributes and landmarks are disabled if you choose this detection model.
+     * * 'detection_03': Face attributes (mask and headPose only) and landmarks are supported if you choose this
+     * detection model.
+     * * Different 'recognitionModel' values are provided. If follow-up operations like "Verify", "Identify", "Find
+     * Similar" are needed, please specify the recognition model with 'recognitionModel' parameter. The default value
+     * for 'recognitionModel' is 'recognition_01', if latest model needed, please explicitly specify the model you need
+     * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
+     * More details, please refer to
+     * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
+     *
+     * @param url the URL of input image.
+     * @param options Options for detectFromUrl API.
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return the response.
+     */
+    @ServiceMethod(returns = ReturnType.SINGLE)
+    public List<FaceDetectionResult> detectFromUrl(String url, DetectOptions options) {
+        return this.detectFromUrl(
+            url,
+            options.getDetectionModel(),
+            options.getRecognitionModel(),
+            options.isReturnFaceId(),
+            options.getReturnFaceAttributes(),
+            options.isReturnFaceLandmarks(),
+            options.isReturnRecognitionModel(),
+            options.getFaceIdTimeToLive());
+    }
+
+    /**
+     * Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes.
+     *
+     * &gt; [!IMPORTANT]
+     * &gt; To mitigate potential misuse that can subject people to stereotyping, discrimination, or unfair denial of
+     * services, we are retiring Face API attributes that predict emotion, gender, age, smile, facial hair, hair, and
+     * makeup. Read more about this decision
+     * https://azure.microsoft.com/en-us/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
+     *
+     * *
+     * * No image will be stored. Only the extracted face feature(s) will be stored on server. The faceId is an
+     * identifier of the face feature and will be used in "Identify", "Verify", and "Find Similar". The stored face
+     * features will expire and be deleted at the time specified by faceIdTimeToLive after the original detection call.
+     * * Optional parameters include faceId, landmarks, and attributes. Attributes include headPose, glasses, occlusion,
+     * accessories, blur, exposure, noise, mask, and qualityForRecognition. Some of the results returned for specific
+     * attributes may not be highly accurate.
+     * * JPEG, PNG, GIF (the first frame), and BMP format are supported. The allowed image file size is from 1KB to 6MB.
+     * * The minimum detectable face size is 36x36 pixels in an image no larger than 1920x1080 pixels. Images with
+     * dimensions higher than 1920x1080 pixels will need a proportionally larger minimum face size.
+     * * Up to 100 faces can be returned for an image. Faces are ranked by face rectangle size from large to small.
+     * * For optimal results when querying "Identify", "Verify", and "Find Similar" ('returnFaceId' is true), please use
+     * faces that are: frontal, clear, and with a minimum size of 200x200 pixels (100 pixels between eyes).
+     * * Different 'detectionModel' values can be provided. To use and compare different detection models, please refer
+     * to https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-detection-model
+     * * 'detection_02': Face attributes and landmarks are disabled if you choose this detection model.
+     * * 'detection_03': Face attributes (mask and headPose only) and landmarks are supported if you choose this
+     * detection model.
+     * * Different 'recognitionModel' values are provided. If follow-up operations like "Verify", "Identify", "Find
+     * Similar" are needed, please specify the recognition model with 'recognitionModel' parameter. The default value
+     * for 'recognitionModel' is 'recognition_01', if latest model needed, please explicitly specify the model you need
+     * in this parameter. Once specified, the detected faceIds will be associated with the specified recognition model.
+     * More details, please refer to
+     * https://learn.microsoft.com/en-us/azure/ai-services/computer-vision/how-to/specify-recognition-model.
+     *
+     * @param url the URL of input image.
+     * @param detectionModel The 'detectionModel' associated with the detected faceIds. Supported 'detectionModel'
+     * values include 'detection_01', 'detection_02' and 'detection_03'. The default value is 'detection_01'
+     * @param recognitionModel The 'recognitionModel' associated with the detected faceIds. Supported 'recognitionModel'
+     * values include 'recognition_01', 'recognition_02', 'recognition_03' or 'recognition_04'. The default value is
+     * 'recognition_01'. 'recognition_04' is recommended since its accuracy is improved on faces wearing masks compared
+     * with 'recognition_03', and its overall accuracy is improved compared with 'recognition_01' and 'recognition_02'.
+     * @param returnFaceId Return faceIds of the detected faces or not. The default value is true.
+     * @param returnFaceAttributes Analyze and return the one or more specified face attributes in the comma-separated
+     * string like 'returnFaceAttributes=headPose,glasses'. Face attribute analysis has additional computational and
+     * time cost.
+     * @param returnFaceLandmarks Return face landmarks of the detected faces or not. The default value is false.
+     * @param returnRecognitionModel Return 'recognitionModel' or not. The default value is false.
+     * @param faceIdTimeToLive The number of seconds for the face ID being cached. Supported range from 60 seconds up to
+     * 86400 seconds. The default value is 86400 (24 hours).
+     * @throws IllegalArgumentException thrown if parameters fail the validation.
+     * @throws HttpResponseException thrown if the request is rejected by server.
+     * @throws ClientAuthenticationException thrown if the request is rejected by server on status code 401.
+     * @throws ResourceNotFoundException thrown if the request is rejected by server on status code 404.
+     * @throws ResourceModifiedException thrown if the request is rejected by server on status code 409.
+     * @throws RuntimeException all other wrapped checked exceptions if the request fails to be sent.
+     * @return the response.
+     */
+    @ServiceMethod(returns = ReturnType.SINGLE)
+    public List<FaceDetectionResult> detectFromUrl(String url, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+        boolean returnFaceId, List<FaceAttributeType> returnFaceAttributes, Boolean returnFaceLandmarks, Boolean returnRecognitionModel,
+        Integer faceIdTimeToLive)
+    {
+        RequestOptions requestOptions = new RequestOptions();
+        AddQueryParameterForDetection(
+            requestOptions,
+            detectionModel,
+            recognitionModel,
+            returnFaceId,
+            returnFaceAttributes,
+            returnFaceLandmarks,
+            returnRecognitionModel,
+            faceIdTimeToLive);
+        DetectFromUrlRequest requestObj = new DetectFromUrlRequest(url);
+        BinaryData request = BinaryData.fromObject(requestObj);
+
+        return detectFromUrlWithResponse(request, requestOptions).getValue()
+            .toObject(TYPE_REFERENCE_LIST_FACE_DETECTION_RESULT);
+    }
+
+    private static void AddQueryParameterForDetection (
+        RequestOptions requestOptions, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+        boolean returnFaceId, List<FaceAttributeType> returnFaceAttributes, Boolean returnFaceLandmarks, Boolean returnRecognitionModel,
+        Integer faceIdTimeToLive) {
+
+        ClientUtils.AddRequireQueryParameters(requestOptions, "detectionModel", detectionModel);
+        ClientUtils.AddRequireQueryParameters(requestOptions, "recognitionModel", recognitionModel);
+        ClientUtils.AddRequireQueryParameters(requestOptions, "returnFaceId", returnFaceId);
+
+        if (returnFaceAttributes != null) {
+            requestOptions.addQueryParam("returnFaceAttributes",
+                returnFaceAttributes.stream()
+                    .map(paramItemValue -> Objects.toString(paramItemValue, ""))
+                    .collect(Collectors.joining(",")),
+                false);
+        }
+
+        if (returnFaceLandmarks != null) {
+            requestOptions.addQueryParam("returnFaceLandmarks", String.valueOf(returnFaceLandmarks), false);
+        }
+
+        if (returnRecognitionModel != null) {
+            requestOptions.addQueryParam("returnRecognitionModel", String.valueOf(returnRecognitionModel), false);
+        }
+
+        if (faceIdTimeToLive != null) {
+            requestOptions.addQueryParam("faceIdTimeToLive", String.valueOf(faceIdTimeToLive), false);
+        }
+    }
 }

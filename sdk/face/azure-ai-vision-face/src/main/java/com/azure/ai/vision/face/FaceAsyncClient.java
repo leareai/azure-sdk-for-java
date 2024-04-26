@@ -2127,4 +2127,33 @@ public final class FaceAsyncClient {
     private static final TypeReference<List<FaceFindSimilarResult>> TYPE_REFERENCE_LIST_FACE_FIND_SIMILAR_RESULT
         = new TypeReference<List<FaceFindSimilarResult>>() {
         };
+
+    public Mono<List<FaceDetectionResult>> detect(BinaryData imageContent, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+                                            boolean returnFaceId, List<FaceAttributeType> returnFaceAttributes, Boolean returnFaceLandmarks, Boolean returnRecognitionModel,
+                                            Integer faceIdTimeToLive)
+    {
+        return this.detect(imageContent, returnFaceId, returnFaceLandmarks, returnFaceAttributes, recognitionModel,  returnRecognitionModel,
+            detectionModel, faceIdTimeToLive);
+    }
+
+    public Mono<List<FaceDetectionResult>> detect(BinaryData imageContent, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+                                            boolean returnFaceId)
+    {
+        return this.detect(imageContent, returnFaceId, null, null, recognitionModel,  null,
+            detectionModel, null);
+    }
+
+    public Mono<List<FaceDetectionResult>> detect(BinaryData imageContent, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+                                            Boolean returnFaceId, List<FaceAttributeType> returnFaceAttributes)
+    {
+        return this.detect(imageContent, returnFaceId, null, returnFaceAttributes, recognitionModel,  null,
+            detectionModel, null);
+    }
+
+    public Mono< List<FaceDetectionResult>> detect(BinaryData imageContent, FaceDetectionModel detectionModel, FaceRecognitionModel recognitionModel,
+                                            Boolean returnFaceId, List<FaceAttributeType> returnFaceAttributes, Boolean returnFaceLandmarks)
+    {
+        return this.detect(imageContent, returnFaceId, returnFaceLandmarks, returnFaceAttributes, recognitionModel,  null,
+            detectionModel, null);
+    }
 }
